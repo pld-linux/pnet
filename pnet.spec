@@ -5,8 +5,6 @@ Version:	0.1.0
 Release:	1
 License:	GPL
 Group:		Development/Languages
-Group(de):	Entwicklung/Sprachen
-Group(pl):	Programowanie/Jêzyki
 Source0:	http://www.southern-storm.com.au/download/%{name}-%{version}.tar.gz
 URL:		http://www.southern-storm.com.au/
 BuildRequires:	treecc
