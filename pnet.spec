@@ -17,8 +17,7 @@ BuildRequires:	automake
 BuildRequires:	bison
 BuildRequires:	flex
 BuildRequires:	gc-devel
-BuildRequires:	libffi-devel
-BuildRequires:	treecc >= 0.2.8
+BuildRequires:	treecc >= 0.3.0
 Requires:	%{name}-compiler = %{version}
 Requires:	%{name}-tools = %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
