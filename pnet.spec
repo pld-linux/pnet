@@ -418,9 +418,11 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{_includedir}/pnet
 
+%ifnarch alpha
 %files libgc
 %defattr(644,root,root,755)
 %dir %{_libdir}/pnet
 %{_libdir}/pnet/libgc.so.*
 %{_libdir}/pnet/libffi.la
 %{_libdir}/pnet/libgc.la
+%endif
