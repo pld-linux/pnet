@@ -3,7 +3,7 @@ Summary(pl):	Narzêdzia Portable .NET z projektu DotGNU
 Summary(pt_BR):	Ferramentas Portable .NET DotGNU
 Name:		pnet
 Version:	0.5.10
-Release:	1
+Release:	1.1
 License:	GPL
 Group:		Development/Languages
 Source0:	http://www.southern-storm.com.au/download/%{name}-%{version}.tar.gz
@@ -195,7 +195,7 @@ Summary:	Visual Basic backend for cscc
 Summary(pl):	Nak³adka do Visual Basica na cscc
 Group:		Development/Languages
 Requires:	pnet-compiler-common = %{version}
-Requires:	pnetlib-visualbasic
+#Requires:	pnetlib-visualbasic
 
 %description compiler-visualbasic
 Visual Basic language backend for cscc. Install this if you want to
@@ -211,7 +211,7 @@ bezu¿yteczna jak Brainf**k, ale...
 Summary:	C backend for cscc
 Summary(pl):	Nak³adka do C na cscc
 Group:		Development/Languages
-Requires:	pnetlib-base
+#Requires:	pnetlib-base
 Requires:	pnet-compiler-common = %{version}
 
 %description compiler-c
