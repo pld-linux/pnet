@@ -2,12 +2,12 @@ Summary:	The DotGNU Portable .NET tools
 Summary(pl):	Narzêdzia Portable .NET z projektu DotGNU
 Summary(pt_BR):	Ferramentas Portable .NET DotGNU
 Name:		pnet
-Version:	0.6.4
-Release:	3
+Version:	0.6.6
+Release:	0.1
 License:	GPL
 Group:		Development/Languages
 Source0:	http://www.southern-storm.com.au/download/%{name}-%{version}.tar.gz
-# Source0-md5:	072c41a400087f518abb624a1118acc7
+# Source0-md5:	ba078c058cb98b26eb9e9d43d2160160
 Patch0:		%{name}-alpha.patch
 Patch1:		%{name}-no_multi-os-directory.patch
 Patch2:		%{name}-systemgc.patch
@@ -281,7 +281,7 @@ Header de desenvolviemnto da Portable .NET.
 
 %prep
 %setup -q
-%patch0 -p1
+#%patch0 -p1
 %patch1 -p1
 %patch2
 
