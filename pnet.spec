@@ -1,7 +1,7 @@
 Summary:	Portable.NET
 Summary(pl):	Przeno¶ny.NET
 Name:		pnet
-Version:	0.1.0
+Version:	0.4.0
 Release:	1
 License:	GPL
 Group:		Development/Languages
@@ -51,5 +51,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %attr(755,root,root) %{_bindir}/*
 %{_libdir}/*
+%attr(755,root,root) %{_libdir}/cscc/plugins/cscc-cs
 %{_includedir}/pnet/
 %{_mandir}/man?/*
