@@ -48,6 +48,5 @@ rm -rf $RPM_BUILD_ROOT
 %doc README doc/*.html
 %attr(755,root,root) %{_bindir}/*
 %{_libdir}/*
-%attr(755,root,root) %{_libdir}/cscc/plugins/cscc-cs
 %{_includedir}/pnet/
 %{_mandir}/man?/*
