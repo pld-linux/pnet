@@ -2,10 +2,11 @@ Summary:	Portable.NET
 Summary(pl):	Przeno¶ny.NET
 Name:		pnet
 Version:	0.4.2
-Release:	1
+Release:	2
 License:	GPL
 Group:		Development/Languages
 Source0:	http://www.southern-storm.com.au/download/%{name}-%{version}.tar.gz
+Patch0:		%{name}-valist.patch
 URL:		http://www.southern-storm.com.au/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -20,6 +21,7 @@ Przenaszalny interpreter dla programów pisanych na platformê .NET.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 rm -f missing
