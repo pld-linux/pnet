@@ -2,12 +2,12 @@ Summary:	The DotGNU Portable .NET tools
 Summary(pl):	Narzêdzia Portable .NET z projektu DotGNU
 Summary(pt_BR):	Ferramentas Portable .NET DotGNU
 Name:		pnet
-Version:	0.5.8
+Version:	0.5.10
 Release:	1
 License:	GPL
 Group:		Development/Languages
 Source0:	http://www.southern-storm.com.au/download/%{name}-%{version}.tar.gz
-# Source0-md5:	59c7230c1d6afcd0eb8f68c92ce344db
+# Source0-md5:	144ee420948233aeae3370b4c62f2832
 Patch0:		%{name}-alpha.patch
 URL:		http://www.southern-storm.com.au/portable_net.html
 BuildRequires:	autoconf
@@ -18,6 +18,7 @@ BuildRequires:	treecc >= 0.2.4
 Requires:	pnet-compiler = %{version}
 Requires:	pnet-interpreter = %{version}
 Requires:	pnet-tools = %{version}
+Requires:	pnet-libgc = %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -50,7 +51,6 @@ Summary:	The DotGNU Portable .NET runtime engine
 Summary(pl):	Silnik wykonawczy Portable .NET z projektu DotGNU
 Summary(pt_BR):	A engine runtime da Portable .NET
 Group:		Applications/Emulators
-Obsoletes:	pnet
 
 %description interpreter
 The Converted Virtual Machine supports executing multiple kinds of
@@ -76,7 +76,6 @@ Summary:	The Portable .NET compiler collection
 Summary(pl):	Zestaw kompilatorów Portable .NET
 Summary(pt_BR):	A coleção de compiladores do Portable .NET
 Group:		Development/Languages
-Obsoletes:	pnet
 Requires:	pnet-interpreter = %{version}
 Requires:	pnet-compiler-common = %{version}
 Requires:	pnet-compiler-csharp = %{version}
@@ -214,7 +213,6 @@ Summary(pl):	Nak³adka do C na cscc
 Group:		Development/Languages
 Requires:	pnetlib-base
 Requires:	pnet-compiler-common = %{version}
-Requires:	pnetC
 
 %description compiler-c
 C language backend for cscc. Install this if you want to compile C
@@ -233,7 +231,6 @@ Summary:	Miscellaneous tools for DotGNU Portable .NET
 Summary(pl):	Ró¿ne narzêdzia Portable .NET z projektu DotGNU
 Summary(pt_BR):	As ferramentas da Portable .NET
 Group:		Development/Tools
-Obsoletes:	pnet
 Requires:	pnet-interpreter = %{version}
 
 %description tools
@@ -265,6 +262,19 @@ Pliki nag³ówkowe Portable.NET.
 
 %description devel -l pt_BR
 Header de desenvolviemnto da Portable .NET.
+
+%package libgc
+Summary: Shared garbage collector built with Portable .NET
+Summary(pl): Dzielony garbage collector zbudowany z Portable .NET
+Group: Development/Libraries
+
+%description libgc
+Portable .NET builds and installs a shared garbage-collection library,
+supposedly intended for use with embedded CLR.
+
+%description libgc -l pl
+Portable .NET buduje i instaluje dzielon± bibliotekê od¶miecacza,
+do wykorzystania z wbudowanym CLR.
 
 %prep
 %setup -q
@@ -328,6 +338,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/resgen
 %dir %{_libdir}/cscc/plugins
 %{_mandir}/man1/cscc.1*
+%{_mandir}/man1/ilalink.1*
 %{_mandir}/man1/ilasm.1*
 %{_mandir}/man1/ilheader.1*
 %{_mandir}/man1/resgen.1*
@@ -363,10 +374,13 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/ilsize
 %attr(755,root,root) %{_bindir}/ilnative
 %attr(755,root,root) %{_bindir}/ilverify
+%attr(755,root,root) %{_bindir}/ilranlib
+%attr(755,root,root) %{_bindir}/ilstrip
 %attr(755,root,root) %{_bindir}/csdoc
 %attr(755,root,root) %{_bindir}/csdoc2html
 %attr(755,root,root) %{_bindir}/csdoc2hier
 %attr(755,root,root) %{_bindir}/csdoc2texi
+%attr(755,root,root) %{_bindir}/cssrc2html
 %{_mandir}/man1/csdoc*
 %{_mandir}/man1/ildb.1*
 %{_mandir}/man1/ildd.1*
@@ -375,8 +389,16 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/ilfind.1*
 %{_mandir}/man1/ilnative.1*
 %{_mandir}/man1/ilsize.1*
+%{_mandir}/man1/ilranlib.1*
+%{_mandir}/man1/ilstrip.1*
 %{_infodir}/pnettools.info*
 
 %files devel
 %defattr(644,root,root,755)
 %{_includedir}/pnet
+
+%files libgc
+%defattr(644,root,root,755)
+%{_libdir}/pnet/libgc.so.*
+%{_libdir}/pnet/libffi.la
+%{_libdir}/pnet/libgc.la
