@@ -3,7 +3,7 @@ Summary(pl):	Narzêdzia Portable .NET z projektu DotGNU
 Summary(pt_BR):	Ferramentas Portable .NET DotGNU
 Name:		pnet
 Version:	0.6.0
-Release:	1
+Release:	2
 License:	GPL
 Group:		Development/Languages
 Source0:	http://www.southern-storm.com.au/download/%{name}-%{version}.tar.gz
@@ -317,8 +317,9 @@ rm -rf $RPM_BUILD_ROOT
 
 # shutup check-files
 rm -f $RPM_BUILD_ROOT%{_bindir}/al # just a link
-rm -f $RPM_BUILD_ROOT%{_libdir}/*.a
-rm -f $RPM_BUILD_ROOT%{_libdir}/pnet/*.a
+# don't rm *.a files...
+# rm -f $RPM_BUILD_ROOT%{_libdir}/*.a
+# rm -f $RPM_BUILD_ROOT%{_libdir}/pnet/*.a
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -418,6 +419,8 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %{_includedir}/pnet
+%{_libdir}/pnet/*.a
+%{_libdir}/*.a
 
 %ifnarch alpha
 %files libgc
