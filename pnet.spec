@@ -1,8 +1,8 @@
 Summary:	The DotGNU Portable .NET tools
 Summary(pl):	Narzêdzia Portable .NET z projektu DotGNU
 Name:		pnet
-Version:	0.5.4
-Release:	3
+Version:	0.5.6
+Release:	1
 License:	GPL
 Group:		Development/Languages
 Source0:	http://www.southern-storm.com.au/download/%{name}-%{version}.tar.gz
