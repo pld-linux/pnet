@@ -1,0 +1,22 @@
+diff -ur pnet-0.4.2/engine/call.c pnet-0.4.2.new/engine/call.c
+--- pnet-0.4.2/engine/call.c	Thu Jun 27 06:49:19 2002
++++ pnet-0.4.2.new/engine/call.c	Mon Aug 26 11:29:15 2002
+@@ -102,7 +102,7 @@
+ int _ILCallPackVaParams(ILExecThread *thread, ILMethod *method,
+ 					    int isCtor, void *_this, void *userData)
+ {
+-	VA_LIST va = *((VA_LIST *)userData);
++	VA_LIST va; // = *((VA_LIST *)userData);
+ 	ILType *signature = ILMethod_Signature(method);
+ 	CVMWord *stacktop, *stacklimit;
+ 	ILUInt32 param, numParams;
+@@ -112,6 +112,9 @@
+ 	ILInt64 int64Value;
+ 	ILNativeFloat fValue;
+ 
++	/* Copy the incoming va_list value */
++	ILMemCpy(&va, userData, sizeof(VA_LIST));
++
+ 	/* Get the top and extent of the stack */
+ 	stacktop = thread->stackTop;
+ 	stacklimit = thread->stackLimit;
