@@ -3,18 +3,21 @@ Summary(pl):	Narzêdzia Portable .NET z projektu DotGNU
 Summary(pt_BR):	Ferramentas Portable .NET DotGNU
 Name:		pnet
 Version:	0.6.2
-Release:	2
+Release:	3
 License:	GPL
 Group:		Development/Languages
 Source0:	http://www.southern-storm.com.au/download/%{name}-%{version}.tar.gz
 # Source0-md5:	8e00cc5dec5df96c24ec630476ebc071
 Patch0:		%{name}-alpha.patch
 Patch1:		%{name}-no_multi-os-directory.patch
+Patch2:		%{name}-systemgc.patch
 URL:		http://www.southern-storm.com.au/portable_net.html
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	bison
 BuildRequires:	flex
+BuildRequires:	gc-devel
+BuildRequires:	libffi-devel
 BuildRequires:	treecc >= 0.2.8
 Requires:	%{name}-compiler = %{version}
 Requires:	%{name}-libgc = %{version}
@@ -120,6 +123,7 @@ Summary(pl):	Pliki wspólne dla kompilatorów Portable .NET
 Group:		Development/Languages
 Requires:	%{name}-interpreter = %{version}
 Requires:	ilasm
+Obsoletes:	%{name}-libgc
 
 %description compiler-common
 The cscc compiler collection allows multiple input languages and
@@ -276,23 +280,11 @@ Pliki nag³ówkowe Portable.NET.
 %description devel -l pt_BR
 Header de desenvolviemnto da Portable .NET.
 
-%package libgc
-Summary:	Shared garbage collector built with Portable .NET
-Summary(pl):	Dzielony garbage collector zbudowany z Portable .NET
-Group:		Libraries
-
-%description libgc
-Portable .NET builds and installs a shared garbage-collection library,
-supposedly intended for use with embedded CLR.
-
-%description libgc -l pl
-Portable .NET buduje i instaluje dzielon± bibliotekê od¶miecacza,
-do wykorzystania z wbudowanym CLR.
-
 %prep
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2
 
 %build
 rm -f missing
@@ -305,9 +297,6 @@ rm -f missing
 # (which x86 have too less...)
 CFLAGS="%{rpmcflags} %{!?debug:-fomit-frame-pointer} -I%{_includedir}/ncurses"
 %configure \
-%ifarch alpha
-	--without-libgc \
-%endif
 	--enable-threads=pthreads
 
 %{__make}
@@ -419,14 +408,4 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %{_includedir}/pnet
-%{_libdir}/pnet/*.a
 %{_libdir}/*.a
-
-%ifnarch alpha
-%files libgc
-%defattr(644,root,root,755)
-%dir %{_libdir}/pnet
-%{_libdir}/pnet/libgc.so.*
-%{_libdir}/pnet/libffi.la
-%{_libdir}/pnet/libgc.la
-%endif
