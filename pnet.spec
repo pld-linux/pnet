@@ -2,7 +2,7 @@ Summary:	Portable.NET
 Summary(pl):	Przeno¶ny.NET
 Name:		pnet
 Version:	0.4.8
-Release:	0.2
+Release:	1
 License:	GPL
 Group:		Development/Languages
 Source0:	http://www.southern-storm.com.au/download/%{name}-%{version}.tar.gz
@@ -26,6 +26,10 @@ rm -f missing
 %{__aclocal}
 %{__autoconf}
 %{__automake}
+#athlon optimization broken in gcc3
+%ifarch athlon
+CFLAGS="-O0" 
+%endif
 %configure
 
 %{__make}
