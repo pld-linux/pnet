@@ -2,7 +2,7 @@ Summary:	Portable.NET
 Summary(pl):	Przeno¶ny.NET
 Name:		pnet
 Version:	0.4.2
-Release:	2
+Release:	3
 License:	GPL
 Group:		Development/Languages
 Source0:	http://www.southern-storm.com.au/download/%{name}-%{version}.tar.gz
@@ -49,6 +49,10 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README doc/*.html
 %attr(755,root,root) %{_bindir}/*
-%{_libdir}/*
+%{_libdir}/*.a
+%dir %{_libdir}/cscc
+%{_libdir}/cscc/lib
+%attr(755,root,root) %{_libdir}/cscc/plugins
 %{_includedir}/pnet/
 %{_mandir}/man?/*
+%{_infodir}/pnet*
