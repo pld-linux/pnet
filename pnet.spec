@@ -15,10 +15,10 @@ BuildRequires:	automake
 BuildRequires:	bison
 BuildRequires:	flex
 BuildRequires:	treecc >= 0.2.4
-Requires:	pnet-compiler = %{version}
-Requires:	pnet-interpreter = %{version}
-Requires:	pnet-tools = %{version}
-Requires:	pnet-libgc = %{version}
+Requires:	%{name}-compiler = %{version}
+Requires:	%{name}-interpreter = %{version}
+Requires:	%{name}-tools = %{version}
+Requires:	%{name}-libgc = %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -76,13 +76,13 @@ Summary:	The Portable .NET compiler collection
 Summary(pl):	Zestaw kompilatorów Portable .NET
 Summary(pt_BR):	A coleção de compiladores do Portable .NET
 Group:		Development/Languages
-Requires:	pnet-interpreter = %{version}
-Requires:	pnet-compiler-common = %{version}
-Requires:	pnet-compiler-csharp = %{version}
-Requires:	pnet-compiler-java = %{version}
-Requires:	pnet-compiler-bf = %{version}
-Requires:	pnet-compiler-visualbasic = %{version}
-Requires:	pnet-compiler-c = %{version}
+Requires:	%{name}-interpreter = %{version}
+Requires:	%{name}-compiler-common = %{version}
+Requires:	%{name}-compiler-csharp = %{version}
+Requires:	%{name}-compiler-java = %{version}
+Requires:	%{name}-compiler-bf = %{version}
+Requires:	%{name}-compiler-visualbasic = %{version}
+Requires:	%{name}-compiler-c = %{version}
 
 %description compiler
 The cscc compiler collection allows multiple input languages and
@@ -117,7 +117,9 @@ provê uma interface padrão de compilação
 
 %package compiler-common
 Summary:	Common files for Portable .NET compilers
+Summary(pl):	Pliki wspólne dla kompilatorów Portable .NET
 Group:		Development/Languages
+Requires:	%{name}-interpreter = %{version}
 
 %description compiler-common
 The cscc compiler collection allows multiple input languages and
@@ -148,7 +150,7 @@ inaczej ten pakiet bêdzie bezu¿yteczny.
 Summary:	C# backend for cscc
 Summary(pl):	Nak³adka do C# na cscc
 Group:		Development/Languages
-Requires:	pnet-compiler-common = %{version}
+Requires:	%{name}-compiler-common = %{version}
 
 %description compiler-csharp
 C# language backend for cscc. Install this if you want to compile C#
@@ -163,7 +165,7 @@ programy w cscc. Zazwyczaj jest bezu¿yteczna bez pnetlib.
 Summary:	Java backend for cscc
 Summary(pl):	Nak³adka do Javy na cscc
 Group:		Development/Languages
-Requires:	pnet-compiler-common = %{version}
+Requires:	%{name}-compiler-common = %{version}
 
 %description compiler-java
 Java language backend for cscc. Install this if you want to compile
@@ -179,7 +181,7 @@ zainstalujesz czego¶ jak classpath.
 Summary:	Brainf**k backend for cscc
 Summary(pl):	Nak³adka do Brainf**k na cscc
 Group:		Development/Languages
-Requires:	pnet-compiler-common = %{version}
+Requires:	%{name}-compiler-common = %{version}
 
 %description compiler-bf
 Brainf**k language backend for cscc. Install this if you want to
@@ -194,7 +196,7 @@ kompilowaæ programy Brainf**k w cscc. Zazwyczaj jest bezu¿yteczna.
 Summary:	Visual Basic backend for cscc
 Summary(pl):	Nak³adka do Visual Basica na cscc
 Group:		Development/Languages
-Requires:	pnet-compiler-common = %{version}
+Requires:	%{name}-compiler-common = %{version}
 #Requires:	pnetlib-visualbasic
 
 %description compiler-visualbasic
@@ -212,7 +214,7 @@ Summary:	C backend for cscc
 Summary(pl):	Nak³adka do C na cscc
 Group:		Development/Languages
 #Requires:	pnetlib-base
-Requires:	pnet-compiler-common = %{version}
+Requires:	%{name}-compiler-common = %{version}
 
 %description compiler-c
 C language backend for cscc. Install this if you want to compile C
@@ -231,7 +233,7 @@ Summary:	Miscellaneous tools for DotGNU Portable .NET
 Summary(pl):	Ró¿ne narzêdzia Portable .NET z projektu DotGNU
 Summary(pt_BR):	As ferramentas da Portable .NET
 Group:		Development/Tools
-Requires:	pnet-interpreter = %{version}
+Requires:	%{name}-interpreter = %{version}
 
 %description tools
 The general toolkit provided along with the pnet compiler and runtime
@@ -264,9 +266,9 @@ Pliki nag³ówkowe Portable.NET.
 Header de desenvolviemnto da Portable .NET.
 
 %package libgc
-Summary: Shared garbage collector built with Portable .NET
-Summary(pl): Dzielony garbage collector zbudowany z Portable .NET
-Group: Development/Libraries
+Summary:	Shared garbage collector built with Portable .NET
+Summary(pl):	Dzielony garbage collector zbudowany z Portable .NET
+Group:		Libraries
 
 %description libgc
 Portable .NET builds and installs a shared garbage-collection library,
@@ -297,7 +299,8 @@ CFLAGS="%{rpmcflags} %{!?debug:-fomit-frame-pointer}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 # shutup check-files
 rm -f $RPM_BUILD_ROOT%{_bindir}/al # just a link
@@ -329,7 +332,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files compiler-common
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog HACKING INSTALL NEWS README doc/*.html
+%doc AUTHORS ChangeLog HACKING NEWS README doc/*.html
 %attr(755,root,root) %{_bindir}/cscc
 %attr(755,root,root) %{_bindir}/csant
 %attr(755,root,root) %{_bindir}/ilalink
@@ -399,6 +402,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files libgc
 %defattr(644,root,root,755)
+%dir %{_libdir}/pnet
 %{_libdir}/pnet/libgc.so.*
 %{_libdir}/pnet/libffi.la
 %{_libdir}/pnet/libgc.la
