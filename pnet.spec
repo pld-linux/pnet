@@ -21,32 +21,50 @@ runtime engine capable of executing multiple stack-based bytecode
 formats.
 
 %description -l pl
-Przeno¶ny interpreter dla programów pisanych na platformê .NET.
+Celem tego projektu jest stworzenie zestawu Wolnych narzêdzi to
+budowania i uruchamiania przeno¶nych plików wykonywalnych (.NET,
+JavaTM, Parrot); aplikacji (w³±czaj±c kompilatory, asembler,
+disasembler; oraz silnika zdolnego wykonywaæ ró¿ne formaty dla maszyn
+stosowych.
 
 %package interpreter
 Summary:	The DotGNU Portable .NET runtime engine
-Group:		System/Emulators
+Summary(pl):	Silnik wykonawczy Portable .NET z projektu DotGNU
+Group:		Applications/Emulators
 Obsoletes:	pnet
 
 %description interpreter
 The Converted Virtual Machine supports executing multiple kinds of
 portable executables, including IL (".NET") and JavaTM classes.
 
+%description interpreter -l pl
+Konwertowana Maszyna Wirtualna wspiera uruchamiania wielu rodzaji
+przeno¶nych plików wykonywalnych w³±czaj±c IL (".NET") oraz klasy
+JavaTM.
+
 %package compiler
 Summary:	The Portable .NET compiler collection
+Summary:	Kompilatory Portable .NET
 Group:		Development/Languages
 Obsoletes:	pnet
 Requires:	pnet-interpreter = %{version}
 
 %description compiler
 The cscc compiler collection allows multiple input languages and
-multiple output bytecodes, much like GCC. Current languages include
-C# and C; current output formats include IL assembly (".NET"), JavaTM
+multiple output bytecodes, much like GCC. Current languages include C#
+and C; current output formats include IL assembly (".NET"), JavaTM
 assembly, and imcc (Parrot (Perl6) high-level assembly).
+
+%description compiler -l pl
+Zbiór kompilatorów cscc t³umaczy wiele jêzyków ¼ród³owych na wiele
+jêzyków wynikowych, podobnie jak GCC. W chwili obecnej obs³uguje C# i
+C jako wej¶cie oraz asembler IL (".NET"), asembler JavaTM, oraz imcc
+(wysokopoziomowy asembler Parrot (Perl6)).
 
 %package tools
 Summary:	Miscellaneous tools for DotGNU Portable .NET
-Group:		Development/Languages
+Summary(pl):	Ró¿ne narzêdzia Portable .NET z projektu DotGNU
+Group:		Development/Tools
 Obsoletes:	pnet
 Requires:	pnet-interpreter = %{version}
 
@@ -54,6 +72,11 @@ Requires:	pnet-interpreter = %{version}
 The general toolkit provided along with the pnet compiler and runtime
 engines. This includes csant, a replacement for make, and various
 tools to deal with IL binaries.
+
+%description tools -l pl
+Zestaw ogólnych narzêdzi dostarczanych razem z kompilatorem i
+¶rodowiskiem wykonawczym. M. in. csant (zamiennik make) oraz ró¿ne
+narzêdzia do obs³ugi binarii IL.
 
 %prep
 %setup -q
@@ -78,8 +101,8 @@ rm -rf $RPM_BUILD_ROOT
 
 # shutup check-files
 rm -f $RPM_BUILD_ROOT%{_bindir}/al # just a link
-rm -f $RPM_BUILD_ROOT%{_libdir}/*.a 
-rm -f $RPM_BUILD_ROOT%{_libdir}/pnet/*.a 
+rm -f $RPM_BUILD_ROOT%{_libdir}/*.a
+rm -f $RPM_BUILD_ROOT%{_libdir}/pnet/*.a
 rm -rf $RPM_BUILD_ROOT%{_includedir}/pnet
 
 %clean
