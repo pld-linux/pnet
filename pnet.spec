@@ -44,7 +44,7 @@ JavaTM.
 
 %package compiler
 Summary:	The Portable .NET compiler collection
-Summary:	Kompilatory Portable .NET
+Summary(pl):	Zestaw kompilatorów Portable .NET
 Group:		Development/Languages
 Obsoletes:	pnet
 Requires:	pnet-interpreter = %{version}
@@ -56,7 +56,7 @@ and C; current output formats include IL assembly (".NET"), JavaTM
 assembly, and imcc (Parrot (Perl6) high-level assembly).
 
 %description compiler -l pl
-Zbiór kompilatorów cscc t³umaczy wiele jêzyków ¼ród³owych na wiele
+Zestaw kompilatorów cscc t³umaczy wiele jêzyków ¼ród³owych na wiele
 jêzyków wynikowych, podobnie jak GCC. W chwili obecnej obs³uguje C# i
 C jako wej¶cie oraz asembler IL (".NET"), asembler JavaTM, oraz imcc
 (wysokopoziomowy asembler Parrot (Perl6)).
