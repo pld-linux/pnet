@@ -133,7 +133,7 @@ replacement for make.
 You should install at least one of the specific language packages;
 otherwise, this package is pretty useless.
 
-%description compiler -l pl
+%description compiler-common -l pl
 Zestaw kompilatorów cscc t³umaczy wiele jêzyków ¼ród³owych na wiele
 jêzyków wynikowych, podobnie jak GCC. W chwili obecnej obs³uguje C#,
 JavaTM, Brainf**k, VB i C jako wej¶cie oraz asembler IL (".NET"),
