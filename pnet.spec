@@ -11,6 +11,7 @@ Source0:	http://www.southern-storm.com.au/download/%{name}-%{version}.tar.gz
 Patch0:		%{name}-alpha.patch
 Patch1:		%{name}-no_multi-os-directory.patch
 Patch2:		%{name}-systemgc.patch
+Patch3:		%{name}-64bit.patch
 URL:		http://www.southern-storm.com.au/portable_net.html
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -284,6 +285,7 @@ Header de desenvolviemnto da Portable .NET.
 #%patch0 -p1
 %patch1 -p1
 %patch2
+%patch3
 
 %build
 rm -f missing
