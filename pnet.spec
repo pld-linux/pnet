@@ -9,6 +9,7 @@ Group:		Development/Languages
 Source0:	http://www.southern-storm.com.au/download/%{name}-%{version}.tar.gz
 # Source0-md5:	8e00cc5dec5df96c24ec630476ebc071
 Patch0:		%{name}-alpha.patch
+Patch1:		%{name}-no_multi-os-directory.patch
 URL:		http://www.southern-storm.com.au/portable_net.html
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -290,7 +291,8 @@ do wykorzystania z wbudowanym CLR.
 
 %prep
 %setup -q
-%patch -p1
+%patch0 -p1
+%patch1 -p1
 
 %build
 rm -f missing
