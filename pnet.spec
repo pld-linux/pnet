@@ -1,5 +1,6 @@
 Summary:	The DotGNU Portable .NET tools
 Summary(pl):	Narzêdzia Portable .NET z projektu DotGNU
+Summary(pt_BR):	Ferramentas Portable .NET DotGNU
 Name:		pnet
 Version:	0.5.6
 Release:	1
@@ -29,9 +30,15 @@ JavaTM, Parrot); aplikacji (w³±czaj±c kompilatory, asembler,
 disasembler; oraz silnika zdolnego wykonywaæ ró¿ne formaty dla maszyn
 stosowych.
 
+%description -l pt_BR
+A meta do projeto é construir um conjunto de ferramentas de software livre
+para construit e executar aplicações .NET, incluindo um compilador C#,
+assembler, disassembler, e runtime engine.
+
 %package interpreter
 Summary:	The DotGNU Portable .NET runtime engine
 Summary(pl):	Silnik wykonawczy Portable .NET z projektu DotGNU
+Summary(pt_BR): A engine runtime da Portable .NET
 Group:		Applications/Emulators
 Obsoletes:	pnet
 
@@ -44,9 +51,14 @@ Konwertowana Maszyna Wirtualna wspiera uruchamiania wielu rodzaji
 przeno¶nych plików wykonywalnych w³±czaj±c IL (".NET") oraz klasy
 JavaTM.
 
+%description interpreter -l pt_BR
+A enfine runtime executa os binários .NET. É uma máquina virtual para o
+bytecode .NET
+
 %package compiler
 Summary:	The Portable .NET compiler collection
 Summary(pl):	Zestaw kompilatorów Portable .NET
+Summary(pt_BR): A coleção de compiladores do Portable .NET
 Group:		Development/Languages
 Obsoletes:	pnet
 Requires:	pnet-interpreter = %{version}
@@ -63,9 +75,14 @@ jêzyków wynikowych, podobnie jak GCC. W chwili obecnej obs³uguje C# i
 C jako wej¶cie oraz asembler IL (".NET"), asembler JavaTM, oraz imcc
 (wysokopoziomowy asembler Parrot (Perl6)).
 
+%description compiler -l pt_BR
+Os compiladores para C# e C são incluídos neste pacote. O wrapper cscc 
+provê uma interface padrão de compilação
+
 %package tools
 Summary:	Miscellaneous tools for DotGNU Portable .NET
 Summary(pl):	Ró¿ne narzêdzia Portable .NET z projektu DotGNU
+Summary(pt_BR): As ferramentas da Portable .NET
 Group:		Development/Tools
 Obsoletes:	pnet
 Requires:	pnet-interpreter = %{version}
@@ -79,6 +96,22 @@ tools to deal with IL binaries.
 Zestaw ogólnych narzêdzi dostarczanych razem z kompilatorem i
 ¶rodowiskiem wykonawczym. M. in. csant (zamiennik make) oraz ró¿ne
 narzêdzia do obs³ugi binarii IL.
+
+%description tools -l pt_BR
+O kit de ferramentas provido junto com o compilador e o runtime.
+Ele include o csant, um substituto para make, e várias ferramentas para
+lidar com binários IL
+
+%package devel
+Summary: The Portable.Net devel headers
+Summary(pt_BR): Header de desenvolviemnto da Portable.Net
+Group:		Development/Libraries
+
+%description devel
+The Portable .NET devel headers.
+
+%description devel -l pt_BR
+Header de desenvolviemnto da Portable .NET.
 
 %prep
 %setup -q
@@ -94,7 +127,8 @@ rm -f missing
 # -fomit-frame-pointer is needed on i686/athlon to recover one more register
 # (which x86 have too less...)
 CFLAGS="%{rpmcflags} %{!?debug:-fomit-frame-pointer}"
-%configure
+%configure \
+	--enable-threads=pthreads
 
 %{__make}
 
@@ -106,7 +140,6 @@ rm -rf $RPM_BUILD_ROOT
 rm -f $RPM_BUILD_ROOT%{_bindir}/al # just a link
 rm -f $RPM_BUILD_ROOT%{_libdir}/*.a
 rm -f $RPM_BUILD_ROOT%{_libdir}/pnet/*.a
-rm -rf $RPM_BUILD_ROOT%{_includedir}/pnet
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -164,3 +197,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/ildiff.1*
 %{_mandir}/man1/csdoc*
 %{_datadir}/info/pnettools.info*
+
+%files devel
+%dir %{_includedir}/pnet
+%{_includedir}/pnet/*
