@@ -3,7 +3,7 @@ Summary(pl):	Narzêdzia Portable .NET z projektu DotGNU
 Summary(pt_BR):	Ferramentas Portable .NET DotGNU
 Name:		pnet
 Version:	0.6.2
-Release:	0.2
+Release:	1
 License:	GPL
 Group:		Development/Languages
 Source0:	http://www.southern-storm.com.au/download/%{name}-%{version}.tar.gz
@@ -301,7 +301,7 @@ rm -f missing
 # (GNATS#10017 - qualified as "invalid user input", not a bug)
 # -fomit-frame-pointer is needed on i686/athlon to recover one more register
 # (which x86 have too less...)
-CFLAGS="%{rpmcflags} %{!?debug:-fomit-frame-pointer}"
+CFLAGS="%{rpmcflags} %{!?debug:-fomit-frame-pointer} -I%{_includedir}/ncurses"
 %configure \
 %ifarch alpha
 	--without-libgc \
