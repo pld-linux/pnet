@@ -2,12 +2,12 @@ Summary:	The DotGNU Portable .NET tools
 Summary(pl):	Narzêdzia Portable .NET z projektu DotGNU
 Summary(pt_BR):	Ferramentas Portable .NET DotGNU
 Name:		pnet
-Version:	0.6.8
+Version:	0.6.10
 Release:	2
 License:	GPL
 Group:		Development/Languages
 Source0:	http://www.southern-storm.com.au/download/%{name}-%{version}.tar.gz
-# Source0-md5:	8640255197f34ac155fd49140692cdae
+# Source0-md5:	973c0153219e8781b413197d0dd87e60
 Patch0:		%{name}-no_multi-os-directory.patch
 Patch1:		%{name}-systemgc.patch
 URL:		http://www.southern-storm.com.au/portable_net.html
@@ -17,7 +17,7 @@ BuildRequires:	bison
 BuildRequires:	flex
 BuildRequires:	gc-devel
 BuildRequires:	libffi-devel
-BuildRequires:	treecc >= 0.3.0
+BuildRequires:	treecc >= 0.3.4
 Requires:	%{name}-compiler = %{version}
 Requires:	%{name}-tools = %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -306,6 +306,9 @@ rm -rf $RPM_BUILD_ROOT
 
 # shutup check-files
 rm -f $RPM_BUILD_ROOT%{_bindir}/al # just a link
+
+# links in mandir
+rm -f $RPM_BUILD_ROOT%{_mandir}/man1/{al.1*,cli-unknown-*}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
