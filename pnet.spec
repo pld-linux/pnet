@@ -7,9 +7,9 @@ License:	GPL
 Group:		Development/Languages
 Source0:	http://www.southern-storm.com.au/download/%{name}-%{version}.tar.gz
 URL:		http://www.southern-storm.com.au/
-BuildRequires:	treecc
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	treecc
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -34,8 +34,6 @@ aclocal
 rm -rf $RPM_BUILD_ROOT
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
-gzip -9nf README
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -47,8 +45,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README* doc/*.html
-
+%doc README doc/*.html
 %attr(755,root,root) %{_bindir}/*
 %{_libdir}/*
 %attr(755,root,root) %{_libdir}/cscc/plugins/cscc-cs
