@@ -78,8 +78,8 @@ Summary(pt_BR):	A coleção de compiladores do Portable .NET
 Group:		Development/Languages
 Requires:	%{name}-compiler-bf = %{version}
 Requires:	%{name}-compiler-c = %{version}
-Requires:	%{name}-compiler-csharp = %{version}
 Requires:	%{name}-compiler-common = %{version}
+Requires:	%{name}-compiler-csharp = %{version}
 Requires:	%{name}-compiler-java = %{version}
 Requires:	%{name}-compiler-visualbasic = %{version}
 Requires:	%{name}-interpreter = %{version}
