@@ -103,12 +103,16 @@ Ele include o csant, um substituto para make, e várias ferramentas para
 lidar com binários IL
 
 %package devel
-Summary: The Portable.Net devel headers
-Summary(pt_BR): Header de desenvolviemnto da Portable.Net
+Summary:	The Portable.Net devel headers
+Summary(pl):	Pliki nag³ówkowe Portable.Net
+Summary(pt_BR):	Header de desenvolviemnto da Portable.Net
 Group:		Development/Libraries
 
 %description devel
 The Portable .NET devel headers.
+
+%description devel -l pl
+Pliki nag³ówkowe Portable.NET.
 
 %description devel -l pt_BR
 Header de desenvolviemnto da Portable .NET.
@@ -196,8 +200,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/ilnative.1*
 %{_mandir}/man1/ildiff.1*
 %{_mandir}/man1/csdoc*
-%{_datadir}/info/pnettools.info*
+%{_infodir}/pnettools.info*
 
 %files devel
-%dir %{_includedir}/pnet
-%{_includedir}/pnet/*
+%defattr(644,root,root,755)
+%{_includedir}/pnet
