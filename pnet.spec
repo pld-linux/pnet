@@ -29,7 +29,7 @@ rm -f missing
 %{__autoconf}
 %{__automake}
 #athlon optimization broken in gcc3
-%ifarch athlon
+%ifarch athlon %{ix86}
 CFLAGS="-O0" 
 %endif
 %configure
