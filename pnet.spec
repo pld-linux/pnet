@@ -26,6 +26,7 @@ Przeno¶ny interpreter dla programów pisanych na platformê .NET.
 %package interpreter
 Summary:	The DotGNU Portable .NET runtime engine
 Group:		System/Emulators
+Obsoletes:	pnet
 
 %description interpreter
 The Converted Virtual Machine supports executing multiple kinds of
@@ -34,6 +35,8 @@ portable executables, including IL (".NET") and JavaTM classes.
 %package compiler
 Summary:	The Portable .NET compiler collection
 Group:		Development/Languages
+Obsoletes:	pnet
+Requires:	pnet-interpreter = %{_version}
 
 %description compiler
 The cscc compiler collection allows multiple input languages and
@@ -44,6 +47,8 @@ assembly, and imcc (Parrot (Perl6) high-level assembly).
 %package tools
 Summary:	Miscellaneous tools for DotGNU Portable .NET
 Group:		Development/Languages
+Obsoletes:	pnet
+Requires:	pnet-interpreter = %{_version}
 
 %description tools
 The general toolkit provided along with the pnet compiler and runtime
