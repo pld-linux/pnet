@@ -3,7 +3,7 @@ Summary(pl):	Narzêdzia Portable .NET z projektu DotGNU
 Summary(pt_BR):	Ferramentas Portable .NET DotGNU
 Name:		pnet
 Version:	0.5.10
-Release:	1.1
+Release:	1.2
 License:	GPL
 Group:		Development/Languages
 Source0:	http://www.southern-storm.com.au/download/%{name}-%{version}.tar.gz
@@ -17,8 +17,8 @@ BuildRequires:	flex
 BuildRequires:	treecc >= 0.2.4
 Requires:	%{name}-compiler = %{version}
 Requires:	%{name}-interpreter = %{version}
-Requires:	%{name}-tools = %{version}
 Requires:	%{name}-libgc = %{version}
+Requires:	%{name}-tools = %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -76,13 +76,13 @@ Summary:	The Portable .NET compiler collection
 Summary(pl):	Zestaw kompilatorów Portable .NET
 Summary(pt_BR):	A coleção de compiladores do Portable .NET
 Group:		Development/Languages
-Requires:	%{name}-interpreter = %{version}
-Requires:	%{name}-compiler-common = %{version}
-Requires:	%{name}-compiler-csharp = %{version}
-Requires:	%{name}-compiler-java = %{version}
 Requires:	%{name}-compiler-bf = %{version}
-Requires:	%{name}-compiler-visualbasic = %{version}
 Requires:	%{name}-compiler-c = %{version}
+Requires:	%{name}-compiler-csharp = %{version}
+Requires:	%{name}-compiler-common = %{version}
+Requires:	%{name}-compiler-java = %{version}
+Requires:	%{name}-compiler-visualbasic = %{version}
+Requires:	%{name}-interpreter = %{version}
 
 %description compiler
 The cscc compiler collection allows multiple input languages and
