@@ -1,4 +1,5 @@
 Summary:	Portable.NET
+Summary(pl):	Przeno¶ny.NET
 Name:		pnet
 Version:	0.1.0
 Release:	1
@@ -7,8 +8,10 @@ Group:		Development/Languages
 Group(de):	Entwicklung/Sprachen
 Group(pl):	Programowanie/Jêzyki
 Source0:	http://www.southern-storm.com.au/download/%{name}-%{version}.tar.gz
-BuildRequires:	treecc
 URL:		http://www.southern-storm.com.au/
+BuildRequires:	treecc
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -33,14 +36,14 @@ automake -a -c
 
 gzip -9nf README doc/*.txt
 
+%clean
+rm -rf $RPM_BUILD_ROOT
+
 %post
 [ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 
 %postun
 [ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
-
-%clean
-rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
