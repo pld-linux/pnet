@@ -2,19 +2,19 @@ Summary:	The DotGNU Portable .NET tools
 Summary(pl):	Narzêdzia Portable .NET z projektu DotGNU
 Summary(pt_BR):	Ferramentas Portable .NET DotGNU
 Name:		pnet
-Version:	0.6.0
-Release:	3
+Version:	0.6.2
+Release:	0.1
 License:	GPL
 Group:		Development/Languages
 Source0:	http://www.southern-storm.com.au/download/%{name}-%{version}.tar.gz
-# Source0-md5:	17785c4d9a748583bf675796e48019d5
+# Source0-md5:	8e00cc5dec5df96c24ec630476ebc071
 Patch0:		%{name}-alpha.patch
 URL:		http://www.southern-storm.com.au/portable_net.html
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	bison
 BuildRequires:	flex
-BuildRequires:	treecc >= 0.2.4
+BuildRequires:	treecc >= 0.2.8
 Requires:	%{name}-compiler = %{version}
 Requires:	%{name}-libgc = %{version}
 Requires:	%{name}-tools = %{version}
@@ -387,11 +387,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %files tools
 %defattr(644,root,root,755)
-#%attr(755,root,root) %{_bindir}/ildb
 %attr(755,root,root) %{_bindir}/ildasm
-#%attr(755,root,root) %{_bindir}/ildiff
 %attr(755,root,root) %{_bindir}/ildd
 %attr(755,root,root) %{_bindir}/ilfind
+%attr(755,root,root) %{_bindir}/ilgac
 %attr(755,root,root) %{_bindir}/ilsize
 %attr(755,root,root) %{_bindir}/ilnative
 %attr(755,root,root) %{_bindir}/ilverify
@@ -404,11 +403,10 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/cssrc2html
 %{_mandir}/man1/csdoc*
 %{_mandir}/man1/cssrc2*
-#%{_mandir}/man1/ildb.1*
 %{_mandir}/man1/ildd.1*
-#%{_mandir}/man1/ildiff.1*
 %{_mandir}/man1/ildasm.1*
 %{_mandir}/man1/ilfind.1*
+%{_mandir}/man1/ilgac.1*
 %{_mandir}/man1/ilnative.1*
 %{_mandir}/man1/ilsize.1*
 %{_mandir}/man1/ilranlib.1*
