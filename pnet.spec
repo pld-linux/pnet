@@ -24,6 +24,7 @@ Przenaszalny interpreter dla programów pisanych na platformê .NET.
 %setup -q
 
 %build
+rm -f missing
 aclocal
 autoconf
 automake -a -c
@@ -34,7 +35,7 @@ automake -a -c
 %install
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
-gzip -9nf README doc/*.txt
+gzip -9nf README 
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -47,7 +48,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README* doc/*
+%doc README* doc/*.html
 
 %attr(755,root,root) %{_bindir}/*
 %{_libdir}/*
