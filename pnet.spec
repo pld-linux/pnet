@@ -351,12 +351,14 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/csant
 %attr(755,root,root) %{_bindir}/ilalink
 %attr(755,root,root) %{_bindir}/ilheader
+%attr(755,root,root) %{_bindir}/ilgac
 %attr(755,root,root) %{_bindir}/resgen
 %dir %{_libdir}/cscc/plugins
 %{_mandir}/man1/csant.1*
 %{_mandir}/man1/cscc.1*
 %{_mandir}/man1/ilalink.1*
 %{_mandir}/man1/ilheader.1*
+%{_mandir}/man1/ilgac.1*
 %{_mandir}/man1/resgen.1*
 
 %files compiler-ilasm
@@ -390,7 +392,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/ildasm
 %attr(755,root,root) %{_bindir}/ildd
 %attr(755,root,root) %{_bindir}/ilfind
-%attr(755,root,root) %{_bindir}/ilgac
 %attr(755,root,root) %{_bindir}/ilsize
 %attr(755,root,root) %{_bindir}/ilnative
 %attr(755,root,root) %{_bindir}/ilverify
@@ -406,7 +407,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/ildd.1*
 %{_mandir}/man1/ildasm.1*
 %{_mandir}/man1/ilfind.1*
-%{_mandir}/man1/ilgac.1*
 %{_mandir}/man1/ilnative.1*
 %{_mandir}/man1/ilsize.1*
 %{_mandir}/man1/ilranlib.1*
