@@ -1,48 +1,9 @@
---- Makefile.am~	2004-01-03 00:10:14.000000000 +0100
-+++ Makefile.am	2004-01-16 02:12:51.826203735 +0100
-@@ -15,68 +15,3 @@
- ## We build libffi and libgc carefully, because we need to be
- ## able to turn them off in "configure".
+--- Makefile.am~	Sat Jan  3 00:10:14 2004
++++ Makefile.am	Fri Mar 26 21:55:48 2004
+@@ -54,29 +54,3 @@
  
--.PHONY: libffi-all-local libgc-all-local \
--		libffi-clean-local libgc-clean-local \
--		libffi-distclean-local libgc-distclean-local \
--		libffi-install-local libgc-install-local \
--		libffi-uninstall-local libgc-uninstall-local
--
--all-local: libffi-all-local libgc-all-local
--clean-local: libffi-clean-local libgc-clean-local
--distclean-local: libffi-distclean-local libgc-distclean-local
--install-exec-local: libffi-install-local libgc-install-local
--uninstall-local: libffi-uninstall-local libgc-uninstall-local
--
--if USING_LIBFFI
--
--libffi-all-local:
--	(cd libffi && $(MAKE) $(AM_MAKEFLAGS) all)
--
--libffi-clean-local:
--	(cd libffi && $(MAKE) $(AM_MAKEFLAGS) clean)
--
--libffi-distclean-local:
--	(cd libffi && $(MAKE) $(AM_MAKEFLAGS) distclean)
--
--libffi-install-local:
--	(cd libffi && $(MAKE) $(AM_MAKEFLAGS) install)
--
--libffi-uninstall-local:
--	(cd libffi && $(MAKE) $(AM_MAKEFLAGS) uninstall)
--
--else
--
--libffi-all-local:
--libffi-clean-local:
--libffi-distclean-local:
--libffi-install-local:
--libffi-uninstall-local:
--
--endif
--
+ endif
+ 
 -if USING_LIBGC
 -
 -libgc-all-local:
@@ -69,18 +30,9 @@
 -libgc-uninstall-local:
 -
 -endif
---- configure.in~	2004-01-03 00:13:26.000000000 +0100
-+++ configure.in	2004-01-16 02:10:56.603968314 +0100
-@@ -448,7 +448,7 @@
- dnl Set up libffi-related variables.
- AC_SUBST(FFILIBS)
- if test x$withffi = xyes ; then
--	FFILIBS='$(top_builddir)/libffi/.libs/libffi.a'
-+	FFILIBS='-lffi'
- 	AC_DEFINE(HAVE_LIBFFI, 1, [Define if you are using libffi])
- else
- 	FFILIBS=""
-@@ -458,7 +458,7 @@
+--- configure.in~	Sat Mar 13 01:51:05 2004
++++ configure.in	Fri Mar 26 21:55:31 2004
+@@ -483,7 +483,7 @@
  dnl Set up libgc-related variables.
  AC_SUBST(GCLIBS)
  if test x$withgc = xyes ; then
@@ -89,47 +41,21 @@
  	AC_DEFINE(HAVE_LIBGC, 1, [Define if you are using libgc])
  else
  	GCLIBS=""
-@@ -527,65 +527,6 @@
- tests/Makefile
- pnet.spec])
- 
--dnl Configure libffi and libgc.  We do these manually to avoid
--dnl some issues with different versions of autotools, and so that
--dnl we can pass specific options to the packages.
--if test "x$no_recursion" != "xyes"; then
--
--	export CC
--
--	dnl Figure out how to find the source directory for directories
--	dnl under $srcdir from a subdirectory of the build tree.  This is
--	dnl	different depending on whether $srcdir is absolute or relative.
--	if echo $srcdir | grep '^[~/]'; then
--		ffisrcdir=$srcdir/libffi
+@@ -539,10 +539,8 @@
+ 	dnl	different depending on whether $srcdir is absolute or relative.
+ 	if echo $srcdir | grep '^[~/]'; then
+ 		ffisrcdir=$srcdir/libffi
 -		gcsrcdir=$srcdir/libgc
--	else
--		ffisrcdir=../$srcdir/libffi
+ 	else
+ 		ffisrcdir=../$srcdir/libffi
 -		gcsrcdir=../$srcdir/libgc
--	fi
--	if test x$withffi = xyes ; then
--		if test ! -d libffi ; then
--			mkdir libffi
--		fi
--		cd "libffi"
--		${CONFIG_SHELL-/bin/sh} ${ffisrcdir}/configure --disable-shared \
--			--enable-multilib=no \
--			--host="${host}" --build="${build}" --target="${target}" \
--			--disable-fast-install --prefix="${prefix}" \
--			--exec-prefix="${exec_prefix}" --bindir="${bindir}" \
--			--sbindir="${sbindir}" --libexecdir="${libexecdir}" \
--			--datadir="${datadir}" --sysconfdir="${sysconfdir}" \
--			--sharedstatedir="${sharedstatedir}" \
--			--localstatedir="${localstatedir}" --libdir="${libdir}/pnet" \
--			--includedir="${includedir}/pnet" \
--			--oldincludedir="${oldincludedir}/pnet" --infodir="${infodir}" \
--			--mandir="${mandir}" --srcdir="${ffisrcdir}" || exit 1
--		cd ..
--	fi
--
+ 	fi
+ 	if test x$withffi = xyes ; then
+ 		if test ! -d libffi ; then
+@@ -564,26 +562,6 @@
+ 		cd ..
+ 	fi
+ 
 -	if test x$withgc = xyes ; then
 -		if test ! -d libgc ; then
 -			mkdir libgc
@@ -150,8 +76,6 @@
 -			--srcdir="${gcsrcdir}" || exit 1
 -		cd ..
 -	fi
--fi
--
+ fi
+ 
  dnl Local variables:
- dnl tab-width: 4
- dnl end:
