@@ -25,7 +25,7 @@ Przenaszalny interpreter dla programów pisanych na platformê .NET.
 rm -f missing
 aclocal
 autoconf
-automake -a -c
+automake -a -c -f
 %configure
 
 %{__make}
