@@ -89,7 +89,7 @@
  	AC_DEFINE(HAVE_LIBGC, 1, [Define if you are using libgc])
  else
  	GCLIBS=""
-@@ -501,63 +501,6 @@
+@@ -527,65 +527,6 @@
  tests/Makefile
  pnet.spec])
  
@@ -115,7 +115,8 @@
 -			mkdir libffi
 -		fi
 -		cd "libffi"
--		${ffisrcdir}/configure --disable-shared --enable-multilib=no \
+-		${CONFIG_SHELL-/bin/sh} ${ffisrcdir}/configure --disable-shared \
+-			--enable-multilib=no \
 -			--host="${host}" --build="${build}" --target="${target}" \
 -			--disable-fast-install --prefix="${prefix}" \
 -			--exec-prefix="${exec_prefix}" --bindir="${bindir}" \
@@ -134,7 +135,8 @@
 -			mkdir libgc
 -		fi
 -		cd libgc
--		${gcsrcdir}/configure --enable-threads=$THREADS --host="${host}" \
+-		${CONFIG_SHELL-/bin/sh} ${gcsrcdir}/configure \
+-			--enable-threads=$THREADS --host="${host}" \
 -			--build="${build}" --target="${target}" --disable-fast-install \
 -			--prefix="${prefix}" \
 -			--exec-prefix="${exec_prefix}" --bindir="${bindir}" \
