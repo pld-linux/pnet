@@ -303,10 +303,10 @@ rm -f missing
 # (which x86 have too less...)
 CFLAGS="%{rpmcflags} %{!?debug:-fomit-frame-pointer}"
 %configure \
-%ifarch alpha
-	--without-libgc \
-%endif
 	--enable-threads=pthreads
+#%ifarch alpha
+#	--without-libgc \
+#%endif
 
 %{__make}
 
