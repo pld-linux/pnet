@@ -2,12 +2,12 @@ Summary:	The DotGNU Portable .NET tools
 Summary(pl):	Narzêdzia Portable .NET z projektu DotGNU
 Summary(pt_BR):	Ferramentas Portable .NET DotGNU
 Name:		pnet
-Version:	0.6.2
-Release:	4
+Version:	0.6.4
+Release:	1
 License:	GPL
 Group:		Development/Languages
 Source0:	http://www.southern-storm.com.au/download/%{name}-%{version}.tar.gz
-# Source0-md5:	8e00cc5dec5df96c24ec630476ebc071
+# Source0-md5:	072c41a400087f518abb624a1118acc7
 Patch0:		%{name}-alpha.patch
 Patch1:		%{name}-no_multi-os-directory.patch
 Patch2:		%{name}-systemgc.patch
@@ -376,6 +376,8 @@ rm -rf $RPM_BUILD_ROOT
 %files compiler-c
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/cscc/plugins/cscc-c-s
+%attr(755,root,root) %{_bindir}/cscc-cpp
+%{_mandir}/man1/cscc-cpp.1*
 
 %files tools
 %defattr(644,root,root,755)
