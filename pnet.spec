@@ -87,10 +87,11 @@ rm -f missing
 %{__aclocal}
 %{__autoconf}
 %{__automake}
-# -O2 -march={i686|athlon} -fno-gcse triggers ICE in gcc 3.2.2
-%ifarch i686 athlon
-CFLAGS="-O2 -march=i586"
-%endif
+# "-O2 -march={i686|athlon} -fno-gcse" with gcc 3.x causes "no register to spill"
+# (GNATS#10017 - qualified as "invalid user input", not a bug)
+# -fomit-frame-pointer is needed on i686/athlon to recover one more register
+# (which x86 have too less...)
+CFLAGS="%{rpmcflags} %{!?debug:-fomit-frame-pointer}"
 %configure
 
 %{__make}
@@ -118,6 +119,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/ilrun
 %attr(755,root,root) %{_bindir}/clrwrap
+%dir %{_libdir}/cscc
 %{_mandir}/man1/ilrun.1*
 %{_mandir}/man1/clrwrap.1*
 
@@ -129,7 +131,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/ilasm
 %attr(755,root,root) %{_bindir}/ilalink
 %attr(755,root,root) %{_bindir}/resgen
-%dir %{_libdir}/cscc
 %dir %{_libdir}/cscc/plugins
 %attr(755,root,root) %{_libdir}/cscc/plugins/*
 %{_mandir}/man1/resgen.1*
