@@ -3,7 +3,7 @@ Summary(pl):	Narzêdzia Portable .NET z projektu DotGNU
 Summary(pt_BR):	Ferramentas Portable .NET DotGNU
 Name:		pnet
 Version:	0.6.2
-Release:	0.1
+Release:	0.2
 License:	GPL
 Group:		Development/Languages
 Source0:	http://www.southern-storm.com.au/download/%{name}-%{version}.tar.gz
@@ -303,10 +303,10 @@ rm -f missing
 # (which x86 have too less...)
 CFLAGS="%{rpmcflags} %{!?debug:-fomit-frame-pointer}"
 %configure \
+%ifarch alpha
+	--without-libgc \
+%endif
 	--enable-threads=pthreads
-#%ifarch alpha
-#	--without-libgc \
-#%endif
 
 %{__make}
 
