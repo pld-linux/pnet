@@ -3,15 +3,14 @@ Summary(pl):	Narzêdzia Portable .NET z projektu DotGNU
 Summary(pt_BR):	Ferramentas Portable .NET DotGNU
 Name:		pnet
 Version:	0.6.6
-Release:	0.1
+Release:	2
 License:	GPL
 Group:		Development/Languages
 Source0:	http://www.southern-storm.com.au/download/%{name}-%{version}.tar.gz
 # Source0-md5:	ba078c058cb98b26eb9e9d43d2160160
-Patch0:		%{name}-alpha.patch
-Patch1:		%{name}-no_multi-os-directory.patch
-Patch2:		%{name}-systemgc.patch
-Patch3:		%{name}-64bit.patch
+Patch0:		%{name}-no_multi-os-directory.patch
+Patch1:		%{name}-systemgc.patch
+Patch2:		%{name}-64bit.patch
 URL:		http://www.southern-storm.com.au/portable_net.html
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -19,7 +18,7 @@ BuildRequires:	bison
 BuildRequires:	flex
 BuildRequires:	gc-devel
 BuildRequires:	libffi-devel
-BuildRequires:	treecc >= 0.2.8
+BuildRequires:	treecc >= 0.3.0
 Requires:	%{name}-compiler = %{version}
 Requires:	%{name}-tools = %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -282,10 +281,9 @@ Header de desenvolviemnto da Portable .NET.
 
 %prep
 %setup -q
-#%patch0 -p1
-%patch1 -p1
-%patch2
-%patch3
+%patch0 -p1
+%patch1 -p0
+%patch2 -p0
 
 %build
 rm -f missing
@@ -310,9 +308,6 @@ rm -rf $RPM_BUILD_ROOT
 
 # shutup check-files
 rm -f $RPM_BUILD_ROOT%{_bindir}/al # just a link
-# don't rm *.a files...
-# rm -f $RPM_BUILD_ROOT%{_libdir}/*.a
-# rm -f $RPM_BUILD_ROOT%{_libdir}/pnet/*.a
 
 %clean
 rm -rf $RPM_BUILD_ROOT
