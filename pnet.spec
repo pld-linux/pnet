@@ -3,7 +3,7 @@ Summary(pl):	Narzêdzia Portable .NET z projektu DotGNU
 Summary(pt_BR):	Ferramentas Portable .NET DotGNU
 Name:		pnet
 Version:	0.5.12
-Release:	1
+Release:	1.1
 License:	GPL
 Group:		Development/Languages
 Source0:	http://www.southern-storm.com.au/download/%{name}-%{version}.tar.gz
@@ -118,6 +118,7 @@ Summary:	Common files for Portable .NET compilers
 Summary(pl):	Pliki wspólne dla kompilatorów Portable .NET
 Group:		Development/Languages
 Requires:	%{name}-interpreter = %{version}
+Requires:	ilasm
 
 %description compiler-common
 The cscc compiler collection allows multiple input languages and
@@ -143,6 +144,19 @@ zastêpca make.
 
 Powiniene¶ zainstalowaæ co najmniej jeden z pakietów jêzykowych pnet,
 inaczej ten pakiet bêdzie bezu¿yteczny.
+
+%package compiler-ilasm
+Summary:	IL Assembler for Portable.NET
+Summary(pl):	Assembler IL dla Portable.NET
+Group:		Development/Languages
+Provides:	ilasm
+Obsoletes:	mono-ilasm
+
+%description compiler-ilasm
+IL Assembler from Portable.NET package.
+
+%description compiler-ilasm -l pl
+Assembler IL z pakietu Portable.NET.
 
 %package compiler-csharp
 Summary:	C# backend for cscc
@@ -195,7 +209,6 @@ Summary:	Visual Basic backend for cscc
 Summary(pl):	Nak³adka do Visual Basica na cscc
 Group:		Development/Languages
 Requires:	%{name}-compiler-common = %{version}
-#Requires:	pnetlib-visualbasic
 
 %description compiler-visualbasic
 Visual Basic language backend for cscc. Install this if you want to
@@ -211,7 +224,6 @@ bezu¿yteczna jak Brainf**k, ale...
 Summary:	C backend for cscc
 Summary(pl):	Nak³adka do C na cscc
 Group:		Development/Languages
-#Requires:	pnetlib-base
 Requires:	%{name}-compiler-common = %{version}
 
 %description compiler-c
@@ -291,6 +303,9 @@ rm -f missing
 # (which x86 have too less...)
 CFLAGS="%{rpmcflags} %{!?debug:-fomit-frame-pointer}"
 %configure \
+%ifarch alpha
+	--without-libgc \
+%endif
 	--enable-threads=pthreads
 
 %{__make}
@@ -334,16 +349,19 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/cscc
 %attr(755,root,root) %{_bindir}/csant
 %attr(755,root,root) %{_bindir}/ilalink
-%attr(755,root,root) %{_bindir}/ilasm
 %attr(755,root,root) %{_bindir}/ilheader
 %attr(755,root,root) %{_bindir}/resgen
 %dir %{_libdir}/cscc/plugins
 %{_mandir}/man1/csant.1*
 %{_mandir}/man1/cscc.1*
 %{_mandir}/man1/ilalink.1*
-%{_mandir}/man1/ilasm.1*
 %{_mandir}/man1/ilheader.1*
 %{_mandir}/man1/resgen.1*
+
+%files compiler-ilasm
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/ilasm
+%{_mandir}/man1/ilasm.1*
 
 %files compiler-csharp
 %defattr(644,root,root,755)
