@@ -28,9 +28,9 @@ rm -f missing
 %{__aclocal}
 %{__autoconf}
 %{__automake}
-#athlon optimization broken in gcc3
-%ifarch athlon %{ix86}
-CFLAGS="-O0" 
+# -O2 -march={i686|athlon} -fno-gcse triggers ICE in gcc 3.2.2
+%ifarch i686 athlon
+CFLAGS="-O2 -march=i586" 
 %endif
 %configure
 
