@@ -36,7 +36,7 @@ portable executables, including IL (".NET") and JavaTM classes.
 Summary:	The Portable .NET compiler collection
 Group:		Development/Languages
 Obsoletes:	pnet
-Requires:	pnet-interpreter = %{_version}
+Requires:	pnet-interpreter = %{version}
 
 %description compiler
 The cscc compiler collection allows multiple input languages and
@@ -48,7 +48,7 @@ assembly, and imcc (Parrot (Perl6) high-level assembly).
 Summary:	Miscellaneous tools for DotGNU Portable .NET
 Group:		Development/Languages
 Obsoletes:	pnet
-Requires:	pnet-interpreter = %{_version}
+Requires:	pnet-interpreter = %{version}
 
 %description tools
 The general toolkit provided along with the pnet compiler and runtime
