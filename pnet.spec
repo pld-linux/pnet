@@ -1,7 +1,7 @@
 Summary:	Portable.NET
 Summary(pl):	Przeno¶ny.NET
 Name:		pnet
-Version:	0.4.4
+Version:	0.4.8
 Release:	1
 License:	GPL
 Group:		Development/Languages
@@ -9,7 +9,7 @@ Source0:	http://www.southern-storm.com.au/download/%{name}-%{version}.tar.gz
 URL:		http://www.southern-storm.com.au/portable_net.html
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	treecc
+BuildRequires:	treecc >= 0.18
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
