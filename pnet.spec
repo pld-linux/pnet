@@ -340,6 +340,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/ilheader
 %attr(755,root,root) %{_bindir}/resgen
 %dir %{_libdir}/cscc/plugins
+%{_mandir}/man1/csant.1*
 %{_mandir}/man1/cscc.1*
 %{_mandir}/man1/ilalink.1*
 %{_mandir}/man1/ilasm.1*
@@ -385,6 +386,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/csdoc2texi
 %attr(755,root,root) %{_bindir}/cssrc2html
 %{_mandir}/man1/csdoc*
+%{_mandir}/man1/cssrc2*
 %{_mandir}/man1/ildb.1*
 %{_mandir}/man1/ildd.1*
 %{_mandir}/man1/ildiff.1*
