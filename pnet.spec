@@ -16,7 +16,6 @@ BuildRequires:	bison
 BuildRequires:	flex
 BuildRequires:	treecc >= 0.2.4
 Requires:	%{name}-compiler = %{version}
-Requires:	%{name}-interpreter = %{version}
 Requires:	%{name}-libgc = %{version}
 Requires:	%{name}-tools = %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -82,7 +81,6 @@ Requires:	%{name}-compiler-common = %{version}
 Requires:	%{name}-compiler-csharp = %{version}
 Requires:	%{name}-compiler-java = %{version}
 Requires:	%{name}-compiler-visualbasic = %{version}
-Requires:	%{name}-interpreter = %{version}
 
 %description compiler
 The cscc compiler collection allows multiple input languages and
