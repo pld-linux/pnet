@@ -30,6 +30,10 @@ rm -f missing
 %ifarch athlon
 CFLAGS="-O0" 
 %endif
+# gcc2.95 on alpha loops with optimization on support/rc2.c
+%ifarch alpha
+CFLAGS="-O0" 
+%endif
 %configure
 
 %{__make}
