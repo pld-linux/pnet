@@ -7,6 +7,7 @@ Release:	1
 License:	GPL
 Group:		Development/Languages
 Source0:	http://www.southern-storm.com.au/download/%{name}-%{version}.tar.gz
+# Source0-md5: 112badcdc63cc0a3c56dc3ec571cde42
 Patch0:		%{name}-alpha.patch
 URL:		http://www.southern-storm.com.au/portable_net.html
 BuildRequires:	autoconf
