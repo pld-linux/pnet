@@ -1,7 +1,7 @@
 Summary:	Portable.NET
 Summary(pl):	Przeno¶ny.NET
 Name:		pnet
-Version:	0.4.0
+Version:	0.4.2
 Release:	1
 License:	GPL
 Group:		Development/Languages
