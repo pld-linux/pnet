@@ -2,12 +2,12 @@ Summary:	The DotGNU Portable .NET tools
 Summary(pl):	Narzêdzia Portable .NET z projektu DotGNU
 Summary(pt_BR):	Ferramentas Portable .NET DotGNU
 Name:		pnet
-Version:	0.6.12
+Version:	0.7.0
 Release:	1
 License:	GPL
 Group:		Development/Languages
 Source0:	http://www.southern-storm.com.au/download/%{name}-%{version}.tar.gz
-# Source0-md5:	8a35ad029e4d4cce936f3ba768f0d186
+# Source0-md5:	fbdb5cde8fdcd455579ed9e22fa3458d
 Patch0:		%{name}-no_multi-os-directory.patch
 Patch1:		%{name}-systemgc.patch
 URL:		http://www.southern-storm.com.au/portable_net.html
@@ -17,7 +17,7 @@ BuildRequires:	bison
 BuildRequires:	flex
 BuildRequires:	gc-devel
 BuildRequires:	libffi-devel
-BuildRequires:	treecc >= 0.3.4
+BuildRequires:	treecc >= 0.3.6
 Requires:	%{name}-compiler = %{version}
 Requires:	%{name}-tools = %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
