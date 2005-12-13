@@ -290,8 +290,8 @@ rm -f missing
 # (GNATS#10017 - qualified as "invalid user input", not a bug)
 # -fomit-frame-pointer is needed on i686/athlon to recover one more register
 # (which x86 have too less...)
-CFLAGS="%{rpmcflags} %{!?debug:-fomit-frame-pointer} -I%{_includedir}/ncurses"
-CPPFLAGS="%{rpmcflags} %{!?debug:-fomit-frame-pointer} -I%{_includedir}/ncurses"
+CFLAGS="%{rpmcflags} %{!?debug:-fomit-frame-pointer} -I/usr/include/ncurses"
+CPPFLAGS="%{rpmcflags} %{!?debug:-fomit-frame-pointer} -I/usr/include/ncurses"
 %configure \
 	--enable-threads=pthreads
 
