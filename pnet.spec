@@ -3,7 +3,7 @@ Summary(pl):	Narzêdzia Portable .NET z projektu DotGNU
 Summary(pt_BR):	Ferramentas Portable .NET DotGNU
 Name:		pnet
 Version:	0.7.2
-Release:	1
+Release:	2
 License:	GPL
 Group:		Development/Languages
 Source0:	http://www.southern-storm.com.au/download/%{name}-%{version}.tar.gz
@@ -307,6 +307,8 @@ rm -f $RPM_BUILD_ROOT%{_bindir}/al # just a link
 
 # links in mandir
 rm -f $RPM_BUILD_ROOT%{_mandir}/man1/{al.1*,cli-unknown-*}
+mv $RPM_BUILD_ROOT%{_bindir}/{,pnet-}resgen
+mv $RPM_BUILD_ROOT%{_mandir}/man1/{,pnet-}resgen.1
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -339,14 +341,14 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/ilalink
 %attr(755,root,root) %{_bindir}/ilheader
 %attr(755,root,root) %{_bindir}/ilgac
-%attr(755,root,root) %{_bindir}/resgen
+%attr(755,root,root) %{_bindir}/pnet-resgen
 %dir %{_libdir}/cscc/plugins
 %{_mandir}/man1/csant.1*
 %{_mandir}/man1/cscc.1*
 %{_mandir}/man1/ilalink.1*
 %{_mandir}/man1/ilheader.1*
 %{_mandir}/man1/ilgac.1*
-%{_mandir}/man1/resgen.1*
+%{_mandir}/man1/pnet-resgen.1*
 
 %files compiler-ilasm
 %defattr(644,root,root,755)
