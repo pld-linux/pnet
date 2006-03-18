@@ -14,7 +14,6 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	bison
 BuildRequires:	flex
-BuildRequires:	gc-devel
 BuildRequires:	libffi-devel
 BuildRequires:	treecc >= 0.3.6
 Requires:	%{name}-compiler = %{version}
