@@ -1,3 +1,6 @@
+
+TH-BLOCKER:	http://gcc.gnu.org/bugzilla/show_bug.cgi?id=28150
+
 Summary:	The DotGNU Portable .NET tools
 Summary(pl):	Narzêdzia Portable .NET z projektu DotGNU
 Summary(pt_BR):	Ferramentas Portable .NET DotGNU
