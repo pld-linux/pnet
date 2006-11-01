@@ -1,12 +1,9 @@
-
-TH-BLOCKER:	http://gcc.gnu.org/bugzilla/show_bug.cgi?id=28150
-
 Summary:	The DotGNU Portable .NET tools
 Summary(pl):	Narzêdzia Portable .NET z projektu DotGNU
 Summary(pt_BR):	Ferramentas Portable .NET DotGNU
 Name:		pnet
 Version:	0.7.4
-Release:	1
+Release:	2
 License:	GPL
 Group:		Development/Languages
 Source0:	http://www.southern-storm.com.au/download/%{name}-%{version}.tar.gz
