@@ -1,6 +1,6 @@
 Summary:	The DotGNU Portable .NET tools
-Summary(pl):	Narzêdzia Portable .NET z projektu DotGNU
-Summary(pt_BR):	Ferramentas Portable .NET DotGNU
+Summary(pl.UTF-8):   NarzÄ™dzia Portable .NET z projektu DotGNU
+Summary(pt_BR.UTF-8):   Ferramentas Portable .NET DotGNU
 Name:		pnet
 Version:	0.7.4
 Release:	2
@@ -30,25 +30,25 @@ formats.
 This is metapackage including pnet-compiler, pnet-interpreter and
 pnet-tools packages.
 
-%description -l pl
-Celem tego projektu jest stworzenie zestawu Wolnych narzêdzi to
-budowania i uruchamiania przeno¶nych plików wykonywalnych (.NET,
-JavaTM, Parrot); aplikacji (w³±czaj±c kompilatory, asembler,
-disasembler; oraz silnika zdolnego wykonywaæ ró¿ne formaty dla maszyn
+%description -l pl.UTF-8
+Celem tego projektu jest stworzenie zestawu Wolnych narzÄ™dzi to
+budowania i uruchamiania przenoÅ›nych plikÃ³w wykonywalnych (.NET,
+JavaTM, Parrot); aplikacji (wÅ‚Ä…czajÄ…c kompilatory, asembler,
+disasembler; oraz silnika zdolnego wykonywaÄ‡ rÃ³Å¼ne formaty dla maszyn
 stosowych.
 
-Jest to metapakiet zawieraj±cy pnet-compiler, pnet-interpreter i
+Jest to metapakiet zawierajÄ…cy pnet-compiler, pnet-interpreter i
 pnet-tools.
 
-%description -l pt_BR
-A meta do projeto é construir um conjunto de ferramentas de software
-livre para construit e executar aplicações .NET, incluindo um
+%description -l pt_BR.UTF-8
+A meta do projeto Ã© construir um conjunto de ferramentas de software
+livre para construit e executar aplicaÃ§Ãµes .NET, incluindo um
 compilador C#, assembler, disassembler, e runtime engine.
 
 %package interpreter
 Summary:	The DotGNU Portable .NET runtime engine
-Summary(pl):	Silnik wykonawczy Portable .NET z projektu DotGNU
-Summary(pt_BR):	A engine runtime da Portable .NET
+Summary(pl.UTF-8):   Silnik wykonawczy Portable .NET z projektu DotGNU
+Summary(pt_BR.UTF-8):   A engine runtime da Portable .NET
 Group:		Applications/Emulators
 
 %description interpreter
@@ -58,22 +58,22 @@ portable executables, including IL (".NET") and JavaTM classes.
 Install it if you want to execute IL executables. You should also
 install pnetlib.
 
-%description interpreter -l pl
+%description interpreter -l pl.UTF-8
 Konwertowana Maszyna Wirtualna wspiera uruchamiania wielu rodzaji
-przeno¶nych plików wykonywalnych w³±czaj±c IL (".NET") oraz klasy
+przenoÅ›nych plikÃ³w wykonywalnych wÅ‚Ä…czajÄ…c IL (".NET") oraz klasy
 JavaTM.
 
-Zainstaluj je¿eli chcesz uruchamiaæ programy IL. Powiniene¶ tak¿e
-zainstalowaæ pnetlib
+Zainstaluj jeÅ¼eli chcesz uruchamiaÄ‡ programy IL. PowinieneÅ› takÅ¼e
+zainstalowaÄ‡ pnetlib
 
-%description interpreter -l pt_BR
-A enfine runtime executa os binários .NET. É uma máquina virtual para
+%description interpreter -l pt_BR.UTF-8
+A enfine runtime executa os binÃ¡rios .NET. Ã‰ uma mÃ¡quina virtual para
 o bytecode .NET
 
 %package compiler
 Summary:	The Portable .NET compiler collection
-Summary(pl):	Zestaw kompilatorów Portable .NET
-Summary(pt_BR):	A coleção de compiladores do Portable .NET
+Summary(pl.UTF-8):   Zestaw kompilatorÃ³w Portable .NET
+Summary(pt_BR.UTF-8):   A coleÃ§Ã£o de compiladores do Portable .NET
 Group:		Development/Languages
 Requires:	%{name}-compiler-bf = %{version}
 Requires:	%{name}-compiler-c = %{version}
@@ -96,26 +96,26 @@ This is a virtual package that installs all compilers included with
 the pnet distribution. If you only want some of them, get
 `pnet-compiler-common' and `pnet-compiler-<insert language here>'.
 
-%description compiler -l pl
-Zestaw kompilatorów cscc t³umaczy wiele jêzyków ¼ród³owych na wiele
-jêzyków wynikowych, podobnie jak GCC. W chwili obecnej obs³uguje C#,
-JavaTM, Brainf**k, VB i C jako wej¶cie oraz asembler IL (".NET"),
+%description compiler -l pl.UTF-8
+Zestaw kompilatorÃ³w cscc tÅ‚umaczy wiele jÄ™zykÃ³w ÅºrÃ³dÅ‚owych na wiele
+jÄ™zykÃ³w wynikowych, podobnie jak GCC. W chwili obecnej obsÅ‚uguje C#,
+JavaTM, Brainf**k, VB i C jako wejÅ›cie oraz asembler IL (".NET"),
 asembler JavaTM, oraz imcc (wysokopoziomowy asembler Parrot (Perl6)).
 
-S± tak¿e za³±czone inne narzêdzia do kompilacji takie jak csant -
-zastêpca make.
+SÄ… takÅ¼e zaÅ‚Ä…czone inne narzÄ™dzia do kompilacji takie jak csant -
+zastÄ™pca make.
 
-Jest to wirtualny pakiet który instaluje wszystkie kompilatory
-za³±czone z dystrybucj± pnet. Je¿eli chcesz tylko niektóre z nich we¼
-pnet-compiler-common i pnet-compiler-<jêzyk>
+Jest to wirtualny pakiet ktÃ³ry instaluje wszystkie kompilatory
+zaÅ‚Ä…czone z dystrybucjÄ… pnet. JeÅ¼eli chcesz tylko niektÃ³re z nich weÅº
+pnet-compiler-common i pnet-compiler-<jÄ™zyk>
 
-%description compiler -l pt_BR
-Os compiladores para C# e C são incluídos neste pacote. O wrapper cscc
-provê uma interface padrão de compilação
+%description compiler -l pt_BR.UTF-8
+Os compiladores para C# e C sÃ£o incluÃ­dos neste pacote. O wrapper cscc
+provÃª uma interface padrÃ£o de compilaÃ§Ã£o
 
 %package compiler-common
 Summary:	Common files for Portable .NET compilers
-Summary(pl):	Pliki wspólne dla kompilatorów Portable .NET
+Summary(pl.UTF-8):   Pliki wspÃ³lne dla kompilatorÃ³w Portable .NET
 Group:		Development/Languages
 Requires:	%{name}-interpreter = %{version}
 Requires:	ilasm
@@ -134,21 +134,21 @@ replacement for make.
 You should install at least one of the specific language packages;
 otherwise, this package is pretty useless.
 
-%description compiler-common -l pl
-Zestaw kompilatorów cscc t³umaczy wiele jêzyków ¼ród³owych na wiele
-jêzyków wynikowych, podobnie jak GCC. W chwili obecnej obs³uguje C#,
-JavaTM, Brainf**k, VB i C jako wej¶cie oraz asembler IL (".NET"),
+%description compiler-common -l pl.UTF-8
+Zestaw kompilatorÃ³w cscc tÅ‚umaczy wiele jÄ™zykÃ³w ÅºrÃ³dÅ‚owych na wiele
+jÄ™zykÃ³w wynikowych, podobnie jak GCC. W chwili obecnej obsÅ‚uguje C#,
+JavaTM, Brainf**k, VB i C jako wejÅ›cie oraz asembler IL (".NET"),
 asembler JavaTM, oraz imcc (wysokopoziomowy asembler Parrot (Perl6)).
 
-S± tak¿e za³±czone inne narzêdzia do kompilacji takie jak csant -
-zastêpca make.
+SÄ… takÅ¼e zaÅ‚Ä…czone inne narzÄ™dzia do kompilacji takie jak csant -
+zastÄ™pca make.
 
-Powiniene¶ zainstalowaæ co najmniej jeden z pakietów jêzykowych pnet,
-inaczej ten pakiet bêdzie bezu¿yteczny.
+PowinieneÅ› zainstalowaÄ‡ co najmniej jeden z pakietÃ³w jÄ™zykowych pnet,
+inaczej ten pakiet bÄ™dzie bezuÅ¼yteczny.
 
 %package compiler-ilasm
 Summary:	IL Assembler for Portable.NET
-Summary(pl):	Assembler IL dla Portable.NET
+Summary(pl.UTF-8):   Assembler IL dla Portable.NET
 Group:		Development/Languages
 Provides:	ilasm
 Obsoletes:	mono-ilasm
@@ -156,12 +156,12 @@ Obsoletes:	mono-ilasm
 %description compiler-ilasm
 IL Assembler from Portable.NET package.
 
-%description compiler-ilasm -l pl
+%description compiler-ilasm -l pl.UTF-8
 Assembler IL z pakietu Portable.NET.
 
 %package compiler-csharp
 Summary:	C# backend for cscc
-Summary(pl):	Nak³adka do C# na cscc
+Summary(pl.UTF-8):   NakÅ‚adka do C# na cscc
 Group:		Development/Languages
 Requires:	%{name}-compiler-common = %{version}
 
@@ -170,13 +170,13 @@ C# language backend for cscc. Install this if you want to compile C#
 programs with cscc. It's pretty useless without package pnetlib,
 however.
 
-%description compiler-csharp -l pl
-Nak³adka jêzyka C# dla cscc. Zainstaluj j± je¿eli chcesz kompilowaæ
-programy w cscc. Zazwyczaj jest bezu¿yteczna bez pnetlib.
+%description compiler-csharp -l pl.UTF-8
+NakÅ‚adka jÄ™zyka C# dla cscc. Zainstaluj jÄ… jeÅ¼eli chcesz kompilowaÄ‡
+programy w cscc. Zazwyczaj jest bezuÅ¼yteczna bez pnetlib.
 
 %package compiler-java
 Summary:	Java backend for cscc
-Summary(pl):	Nak³adka do Javy na cscc
+Summary(pl.UTF-8):   NakÅ‚adka do Javy na cscc
 Group:		Development/Languages
 Requires:	%{name}-compiler-common = %{version}
 
@@ -185,14 +185,14 @@ Java language backend for cscc. Install this if you want to compile
 Java programs with cscc. It's pretty useless until you manually
 install something like classpath, however.
 
-%description compiler-java -l pl
-Nak³adka jêzyka Java dla cscc. Zainstaluj j± je¿eli chcesz kompilowaæ
-programy Java w cscc. Zazwyczaj jest bezu¿yteczna dopóki nie
-zainstalujesz czego¶ jak classpath.
+%description compiler-java -l pl.UTF-8
+NakÅ‚adka jÄ™zyka Java dla cscc. Zainstaluj jÄ… jeÅ¼eli chcesz kompilowaÄ‡
+programy Java w cscc. Zazwyczaj jest bezuÅ¼yteczna dopÃ³ki nie
+zainstalujesz czegoÅ› jak classpath.
 
 %package compiler-bf
 Summary:	Brainf**k backend for cscc
-Summary(pl):	Nak³adka do Brainf**k na cscc
+Summary(pl.UTF-8):   NakÅ‚adka do Brainf**k na cscc
 Group:		Development/Languages
 Requires:	%{name}-compiler-common = %{version}
 
@@ -201,13 +201,13 @@ Brainf**k language backend for cscc. Install this if you want to
 compile Brainf**k programs with cscc. Brainf**k is pretty useless,
 however.
 
-%description compiler-bf -l pl
-Nak³adka jêzyka Brainf**k dla cscc. Zainstaluj j± je¿eli chcesz
-kompilowaæ programy Brainf**k w cscc. Zazwyczaj jest bezu¿yteczna.
+%description compiler-bf -l pl.UTF-8
+NakÅ‚adka jÄ™zyka Brainf**k dla cscc. Zainstaluj jÄ… jeÅ¼eli chcesz
+kompilowaÄ‡ programy Brainf**k w cscc. Zazwyczaj jest bezuÅ¼yteczna.
 
 %package compiler-visualbasic
 Summary:	Visual Basic backend for cscc
-Summary(pl):	Nak³adka do Visual Basica na cscc
+Summary(pl.UTF-8):   NakÅ‚adka do Visual Basica na cscc
 Group:		Development/Languages
 Requires:	%{name}-compiler-common = %{version}
 
@@ -216,14 +216,14 @@ Visual Basic language backend for cscc. Install this if you want to
 compile Visual Basic programs with cscc. Not as useless as
 Brainf**k...probably.
 
-%description compiler-visualbasic -l pl
-Nak³adka jêzyka Brainf**k dla cscc. Zainstaluj j± je¿eli chcesz
-kompilowaæ programy Visual Basica w cscc. Nie a¿ tak bardzo
-bezu¿yteczna jak Brainf**k, ale...
+%description compiler-visualbasic -l pl.UTF-8
+NakÅ‚adka jÄ™zyka Brainf**k dla cscc. Zainstaluj jÄ… jeÅ¼eli chcesz
+kompilowaÄ‡ programy Visual Basica w cscc. Nie aÅ¼ tak bardzo
+bezuÅ¼yteczna jak Brainf**k, ale...
 
 %package compiler-c
 Summary:	C backend for cscc
-Summary(pl):	Nak³adka do C na cscc
+Summary(pl.UTF-8):   NakÅ‚adka do C na cscc
 Group:		Development/Languages
 Requires:	%{name}-compiler-common = %{version}
 
@@ -235,14 +235,14 @@ C programs require a support library packaged in pnetlib called
 `OpenSystem.C.dll'. It's like libgcc. Also, a minimal libc that
 compiles with cscc-c-s is in pnetC.
 
-%description compiler-c -l pl
-Nak³adka jêzyka C dla cscc. Zainstaluj j± je¿eli chcesz kompilowaæ
+%description compiler-c -l pl.UTF-8
+NakÅ‚adka jÄ™zyka C dla cscc. Zainstaluj jÄ… jeÅ¼eli chcesz kompilowaÄ‡
 programy C w cscc.
 
 %package tools
 Summary:	Miscellaneous tools for DotGNU Portable .NET
-Summary(pl):	Ró¿ne narzêdzia Portable .NET z projektu DotGNU
-Summary(pt_BR):	As ferramentas da Portable .NET
+Summary(pl.UTF-8):   RÃ³Å¼ne narzÄ™dzia Portable .NET z projektu DotGNU
+Summary(pt_BR.UTF-8):   As ferramentas da Portable .NET
 Group:		Development/Tools
 Requires:	%{name}-interpreter = %{version}
 
@@ -251,29 +251,29 @@ The general toolkit provided along with the pnet compiler and runtime
 engines. This includes csant, a replacement for make, and various
 tools to deal with IL binaries.
 
-%description tools -l pl
-Zestaw ogólnych narzêdzi dostarczanych razem z kompilatorem i
-¶rodowiskiem wykonawczym. M. in. csant (zamiennik make) oraz ró¿ne
-narzêdzia do obs³ugi binarii IL.
+%description tools -l pl.UTF-8
+Zestaw ogÃ³lnych narzÄ™dzi dostarczanych razem z kompilatorem i
+Å›rodowiskiem wykonawczym. M. in. csant (zamiennik make) oraz rÃ³Å¼ne
+narzÄ™dzia do obsÅ‚ugi binarii IL.
 
-%description tools -l pt_BR
+%description tools -l pt_BR.UTF-8
 O kit de ferramentas provido junto com o compilador e o runtime. Ele
-include o csant, um substituto para make, e várias ferramentas para
-lidar com binários IL
+include o csant, um substituto para make, e vÃ¡rias ferramentas para
+lidar com binÃ¡rios IL
 
 %package devel
 Summary:	The Portable.Net devel headers
-Summary(pl):	Pliki nag³ówkowe Portable.Net
-Summary(pt_BR):	Header de desenvolviemnto da Portable.Net
+Summary(pl.UTF-8):   Pliki nagÅ‚Ã³wkowe Portable.Net
+Summary(pt_BR.UTF-8):   Header de desenvolviemnto da Portable.Net
 Group:		Development/Libraries
 
 %description devel
 The Portable .NET devel headers.
 
-%description devel -l pl
-Pliki nag³ówkowe Portable.NET.
+%description devel -l pl.UTF-8
+Pliki nagÅ‚Ã³wkowe Portable.NET.
 
-%description devel -l pt_BR
+%description devel -l pt_BR.UTF-8
 Header de desenvolviemnto da Portable .NET.
 
 %prep
