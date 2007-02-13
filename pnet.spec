@@ -1,6 +1,6 @@
 Summary:	The DotGNU Portable .NET tools
-Summary(pl.UTF-8):   Narzędzia Portable .NET z projektu DotGNU
-Summary(pt_BR.UTF-8):   Ferramentas Portable .NET DotGNU
+Summary(pl.UTF-8):	Narzędzia Portable .NET z projektu DotGNU
+Summary(pt_BR.UTF-8):	Ferramentas Portable .NET DotGNU
 Name:		pnet
 Version:	0.7.4
 Release:	2
@@ -47,8 +47,8 @@ compilador C#, assembler, disassembler, e runtime engine.
 
 %package interpreter
 Summary:	The DotGNU Portable .NET runtime engine
-Summary(pl.UTF-8):   Silnik wykonawczy Portable .NET z projektu DotGNU
-Summary(pt_BR.UTF-8):   A engine runtime da Portable .NET
+Summary(pl.UTF-8):	Silnik wykonawczy Portable .NET z projektu DotGNU
+Summary(pt_BR.UTF-8):	A engine runtime da Portable .NET
 Group:		Applications/Emulators
 
 %description interpreter
@@ -72,8 +72,8 @@ o bytecode .NET
 
 %package compiler
 Summary:	The Portable .NET compiler collection
-Summary(pl.UTF-8):   Zestaw kompilatorów Portable .NET
-Summary(pt_BR.UTF-8):   A coleção de compiladores do Portable .NET
+Summary(pl.UTF-8):	Zestaw kompilatorów Portable .NET
+Summary(pt_BR.UTF-8):	A coleção de compiladores do Portable .NET
 Group:		Development/Languages
 Requires:	%{name}-compiler-bf = %{version}
 Requires:	%{name}-compiler-c = %{version}
@@ -115,7 +115,7 @@ provê uma interface padrão de compilação
 
 %package compiler-common
 Summary:	Common files for Portable .NET compilers
-Summary(pl.UTF-8):   Pliki wspólne dla kompilatorów Portable .NET
+Summary(pl.UTF-8):	Pliki wspólne dla kompilatorów Portable .NET
 Group:		Development/Languages
 Requires:	%{name}-interpreter = %{version}
 Requires:	ilasm
@@ -148,7 +148,7 @@ inaczej ten pakiet będzie bezużyteczny.
 
 %package compiler-ilasm
 Summary:	IL Assembler for Portable.NET
-Summary(pl.UTF-8):   Assembler IL dla Portable.NET
+Summary(pl.UTF-8):	Assembler IL dla Portable.NET
 Group:		Development/Languages
 Provides:	ilasm
 Obsoletes:	mono-ilasm
@@ -161,7 +161,7 @@ Assembler IL z pakietu Portable.NET.
 
 %package compiler-csharp
 Summary:	C# backend for cscc
-Summary(pl.UTF-8):   Nakładka do C# na cscc
+Summary(pl.UTF-8):	Nakładka do C# na cscc
 Group:		Development/Languages
 Requires:	%{name}-compiler-common = %{version}
 
@@ -176,7 +176,7 @@ programy w cscc. Zazwyczaj jest bezużyteczna bez pnetlib.
 
 %package compiler-java
 Summary:	Java backend for cscc
-Summary(pl.UTF-8):   Nakładka do Javy na cscc
+Summary(pl.UTF-8):	Nakładka do Javy na cscc
 Group:		Development/Languages
 Requires:	%{name}-compiler-common = %{version}
 
@@ -192,7 +192,7 @@ zainstalujesz czegoś jak classpath.
 
 %package compiler-bf
 Summary:	Brainf**k backend for cscc
-Summary(pl.UTF-8):   Nakładka do Brainf**k na cscc
+Summary(pl.UTF-8):	Nakładka do Brainf**k na cscc
 Group:		Development/Languages
 Requires:	%{name}-compiler-common = %{version}
 
@@ -207,7 +207,7 @@ kompilować programy Brainf**k w cscc. Zazwyczaj jest bezużyteczna.
 
 %package compiler-visualbasic
 Summary:	Visual Basic backend for cscc
-Summary(pl.UTF-8):   Nakładka do Visual Basica na cscc
+Summary(pl.UTF-8):	Nakładka do Visual Basica na cscc
 Group:		Development/Languages
 Requires:	%{name}-compiler-common = %{version}
 
@@ -223,7 +223,7 @@ bezużyteczna jak Brainf**k, ale...
 
 %package compiler-c
 Summary:	C backend for cscc
-Summary(pl.UTF-8):   Nakładka do C na cscc
+Summary(pl.UTF-8):	Nakładka do C na cscc
 Group:		Development/Languages
 Requires:	%{name}-compiler-common = %{version}
 
@@ -241,8 +241,8 @@ programy C w cscc.
 
 %package tools
 Summary:	Miscellaneous tools for DotGNU Portable .NET
-Summary(pl.UTF-8):   Różne narzędzia Portable .NET z projektu DotGNU
-Summary(pt_BR.UTF-8):   As ferramentas da Portable .NET
+Summary(pl.UTF-8):	Różne narzędzia Portable .NET z projektu DotGNU
+Summary(pt_BR.UTF-8):	As ferramentas da Portable .NET
 Group:		Development/Tools
 Requires:	%{name}-interpreter = %{version}
 
@@ -263,8 +263,8 @@ lidar com binários IL
 
 %package devel
 Summary:	The Portable.Net devel headers
-Summary(pl.UTF-8):   Pliki nagłówkowe Portable.Net
-Summary(pt_BR.UTF-8):   Header de desenvolviemnto da Portable.Net
+Summary(pl.UTF-8):	Pliki nagłówkowe Portable.Net
+Summary(pt_BR.UTF-8):	Header de desenvolviemnto da Portable.Net
 Group:		Development/Libraries
 
 %description devel
