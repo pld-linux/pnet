@@ -119,7 +119,7 @@ Summary(pl.UTF-8):	Pliki wspólne dla kompilatorów Portable .NET
 Group:		Development/Languages
 Requires:	%{name}-interpreter = %{version}
 Requires:	ilasm
-Obsoletes:	%{name}-libgc
+Obsoletes:	pnet-libgc
 
 %description compiler-common
 The cscc compiler collection allows multiple input languages and
