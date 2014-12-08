@@ -2,18 +2,22 @@ Summary:	The DotGNU Portable .NET tools
 Summary(pl.UTF-8):	Narzędzia Portable .NET z projektu DotGNU
 Summary(pt_BR.UTF-8):	Ferramentas Portable .NET DotGNU
 Name:		pnet
-Version:	0.7.4
-Release:	5
+Version:	0.8.0
+Release:	1
 License:	GPL
 Group:		Development/Languages
-Source0:	http://www.southern-storm.com.au/download/%{name}-%{version}.tar.gz
-# Source0-md5:	064baa390e6b1ae9463f68c929e36f74
+Source0:	http://download.savannah.gnu.org/releases/dotgnu-pnet/%{name}-%{version}.tar.gz
+# Source0-md5:	84cb3612d7175bd9e476c88e66fe19f9
 Patch0:		%{name}-systemffi.patch
-URL:		http://www.southern-storm.com.au/portable_net.html
+Patch1:		%{name}-systemgc.patch
+Patch2:		format-security.patch
+Patch3:		no-regex_syntax.patch
+URL:		http://www.gnu.org/software/dotgnu/pnet.html
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	bison
 BuildRequires:	flex
+BuildRequires:	gc-devel
 BuildRequires:	libffi-devel
 BuildRequires:	treecc >= 0.3.6
 Requires:	%{name}-compiler = %{version}
@@ -278,10 +282,16 @@ Header de desenvolviemnto da Portable .NET.
 
 %prep
 %setup -q
-%patch0 -p0
+%patch0 -p1
+# pnet uses gc incompatible with system lib and links statically to it
+#%patch1 -p1
+%patch2 -p1
+%patch3 -p1
+
+%{__rm} ilasm/ilasm_grammar.c
 
 %build
-rm -f missing
+%{__libtoolize}
 %{__aclocal}
 %{__autoconf}
 %{__automake}
@@ -301,13 +311,16 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-# shutup check-files
-rm -f $RPM_BUILD_ROOT%{_bindir}/al # just a link
+# junk removal
+%{__rm} $RPM_BUILD_ROOT%{_bindir}/{al,cli-unknown-*}
+%{__rm} $RPM_BUILD_ROOT%{_mandir}/man1/{al.1*,cli-unknown-*}
+%{__mv} $RPM_BUILD_ROOT%{_bindir}/{,pnet-}resgen
+%{__mv} $RPM_BUILD_ROOT%{_mandir}/man1/{,pnet-}resgen.1
 
-# links in mandir
-rm -f $RPM_BUILD_ROOT%{_mandir}/man1/{al.1*,cli-unknown-*}
-mv $RPM_BUILD_ROOT%{_bindir}/{,pnet-}resgen
-mv $RPM_BUILD_ROOT%{_mandir}/man1/{,pnet-}resgen.1
+# don't distribute libgc
+%{__rm} -r $RPM_BUILD_ROOT%{_includedir}/{gc*,leak_detector.h}
+%{__rm} -r $RPM_BUILD_ROOT%{_datadir}/gc
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/libgc.*
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -334,7 +347,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files compiler-common
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog HACKING NEWS README doc/*.html
+%doc AUTHORS ChangeLog NEWS README doc/cvmdoc
 %attr(755,root,root) %{_bindir}/cscc
 %attr(755,root,root) %{_bindir}/csant
 %attr(755,root,root) %{_bindir}/ilalink
@@ -365,6 +378,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files compiler-bf
 %defattr(644,root,root,755)
+%attr(755,root,root) %{_libdir}/cscc/plugins/cscc-b
 %attr(755,root,root) %{_libdir}/cscc/plugins/cscc-bf
 
 %files compiler-visualbasic

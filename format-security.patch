@@ -1,0 +1,91 @@
+--- pnet-0.8.0/ilasm/ilasm_grammar.y~	2004-10-13 12:19:33.000000000 +0200
++++ pnet-0.8.0/ilasm/ilasm_grammar.y	2014-12-08 21:50:07.786452309 +0100
+@@ -84,8 +84,7 @@
+ 	}
+ 	else
+ 	{
+-		fprintf(stderr, msg);
+-		putc('\n', stderr);
++		fprintf(stderr, "%s\n", msg);
+ 	}
+ 	ILAsmErrors = 1;
+ }
+--- pnet-0.8.0/engine/dumpconfig.c~	2007-01-23 20:49:02.000000000 +0100
++++ pnet-0.8.0/engine/dumpconfig.c	2014-12-08 21:53:51.623117354 +0100
+@@ -37,7 +37,7 @@
+ {
+ 	const int columnWidth=30;
+ 	int spaces=columnWidth-strlen(left);
+-	fprintf(stream,left);
++	fprintf(stream,"%s",left);
+ 	while((spaces-- >= 0)) fputc(' ',stream);
+ 	if(right)
+ 	{
+--- pnet-0.8.0/cscc/c/c_crt0.c.orig	2014-12-08 21:55:41.276449893 +0100
++++ pnet-0.8.0/cscc/c/c_crt0.c	2014-12-08 21:57:15.689782543 +0100
+@@ -40,11 +40,11 @@
+ {
+ 	if(node)
+ 	{
+-		CCWarningOnLine(yygetfilename(node), yygetlinenum(node), msg);
++		CCWarningOnLine(yygetfilename(node), yygetlinenum(node), "%s", msg);
+ 	}
+ 	else
+ 	{
+-		CCWarning(msg);
++		CCWarning("%s", msg);
+ 	}
+ }
+ 
+@@ -55,11 +55,11 @@
+ {
+ 	if(node)
+ 	{
+-		CCErrorOnLine(yygetfilename(node), yygetlinenum(node), msg);
++		CCErrorOnLine(yygetfilename(node), yygetlinenum(node), "%s", msg);
+ 	}
+ 	else
+ 	{
+-		CCError(msg);
++		CCError("%s", msg);
+ 	}
+ }
+ 
+--- pnet-0.8.0/cscc/c/c_declspec.c.orig	2014-12-08 21:57:33.706449079 +0100
++++ pnet-0.8.0/cscc/c/c_declspec.c	2014-12-08 21:58:35.246448635 +0100
+@@ -551,7 +551,7 @@
+ 		}
+ 		else
+ 		{
+-			CCErrorOnLine(yygetfilename(node), yygetlinenum(node), msg2);
++			CCErrorOnLine(yygetfilename(node), yygetlinenum(node), "%s", msg2);
+ 		}
+ 	}
+ 	else
+@@ -562,7 +562,7 @@
+ 		}
+ 		else
+ 		{
+-			CCError(msg2);
++			CCError("%s", msg2);
+ 		}
+ 	}
+ }
+@@ -583,7 +583,7 @@
+ 		}
+ 		else
+ 		{
+-			CCWarningOnLine(yygetfilename(node), yygetlinenum(node), msg2);
++			CCWarningOnLine(yygetfilename(node), yygetlinenum(node), "%s", msg2);
+ 		}
+ 	}
+ 	else
+@@ -594,7 +594,7 @@
+ 		}
+ 		else
+ 		{
+-			CCWarning(msg2);
++			CCWarning("%s", msg2);
+ 		}
+ 	}
+ }

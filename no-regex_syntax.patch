@@ -1,0 +1,19 @@
+--- pnet-0.8.0/doc/cvmdoc.py~	2005-08-02 20:31:00.000000000 +0200
++++ pnet-0.8.0/doc/cvmdoc.py	2014-12-08 22:05:04.449779150 +0100
+@@ -9,7 +9,6 @@
+ import sys
+ import cgi
+ import re
+-import regex_syntax
+ cvm_doc="""
+ """
+ 
+@@ -339,7 +338,7 @@
+ #RHYS PART of the puzzle starts
+ 	codes={}
+ 	codefile=open(sys.argv[2], 'r')
+-	prog=re.compile("^#define[ \t]*COP_", regex_syntax.RE_SYNTAX_GREP)
++	prog=re.compile("^#define[ \t]*COP_")
+ 	while 1:
+ 		line = codefile.readline()
+ 		if not line: break
