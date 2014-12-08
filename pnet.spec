@@ -3,7 +3,7 @@ Summary(pl.UTF-8):	Narzędzia Portable .NET z projektu DotGNU
 Summary(pt_BR.UTF-8):	Ferramentas Portable .NET DotGNU
 Name:		pnet
 Version:	0.8.0
-Release:	1
+Release:	2
 License:	GPL
 Group:		Development/Languages
 Source0:	http://download.savannah.gnu.org/releases/dotgnu-pnet/%{name}-%{version}.tar.gz
@@ -299,8 +299,8 @@ Header de desenvolviemnto da Portable .NET.
 # (GNATS#10017 - qualified as "invalid user input", not a bug)
 # -fomit-frame-pointer is needed on i686/athlon to recover one more register
 # (which x86 have too less...)
-CFLAGS="%{rpmcflags} %{!?debug:-fomit-frame-pointer} -I/usr/include/ncurses"
-CPPFLAGS="%{rpmcflags} %{!?debug:-fomit-frame-pointer} -I/usr/include/ncurses"
+CFLAGS="%{rpmcflags} %{!?debug:-fomit-frame-pointer} -I/usr/include/ncurses `pkg-config --cflags libffi`"
+CPPFLAGS="%{rpmcflags} %{!?debug:-fomit-frame-pointer} -I/usr/include/ncurses `pkg-config --cflags libffi`"
 %configure \
 	--enable-threads=pthreads
 
