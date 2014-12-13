@@ -1,10 +1,14 @@
+#
+# Conditional build:
+%bcond_with	libjit	# libjit instead of CVM engine
+
 Summary:	The DotGNU Portable .NET tools
 Summary(pl.UTF-8):	Narzędzia Portable .NET z projektu DotGNU
 Summary(pt_BR.UTF-8):	Ferramentas Portable .NET DotGNU
 Name:		pnet
 Version:	0.8.0
 Release:	2
-License:	GPL
+License:	GPL v2+
 Group:		Development/Languages
 Source0:	http://download.savannah.gnu.org/releases/dotgnu-pnet/%{name}-%{version}.tar.gz
 # Source0-md5:	84cb3612d7175bd9e476c88e66fe19f9
@@ -12,6 +16,8 @@ Patch0:		%{name}-systemffi.patch
 Patch1:		%{name}-systemgc.patch
 Patch2:		format-security.patch
 Patch3:		no-regex_syntax.patch
+Patch4:		%{name}-info.patch
+Patch5:		%{name}-link.patch
 URL:		http://www.gnu.org/software/dotgnu/pnet.html
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -19,7 +25,12 @@ BuildRequires:	bison
 BuildRequires:	flex
 BuildRequires:	gc-devel
 BuildRequires:	libffi-devel
+%{?with_libjit:BuildRequires:	libjit-devel}
+BuildRequires:	libtool
+BuildRequires:	ncurses-devel
+BuildRequires:	texinfo
 BuildRequires:	treecc >= 0.3.6
+BuildRequires:	zlib-devel
 Requires:	%{name}-compiler = %{version}
 Requires:	%{name}-tools = %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -287,6 +298,8 @@ Header de desenvolviemnto da Portable .NET.
 #%patch1 -p1
 %patch2 -p1
 %patch3 -p1
+%patch4 -p1
+%patch5 -p1
 
 %{__rm} ilasm/ilasm_grammar.c
 
@@ -294,6 +307,7 @@ Header de desenvolviemnto da Portable .NET.
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
+%{__autoheader}
 %{__automake}
 # "-O2 -march={i686|athlon} -fno-gcse" with gcc 3.x causes "no register to spill"
 # (GNATS#10017 - qualified as "invalid user input", not a bug)
@@ -302,7 +316,8 @@ Header de desenvolviemnto da Portable .NET.
 CFLAGS="%{rpmcflags} %{!?debug:-fomit-frame-pointer} -I/usr/include/ncurses `pkg-config --cflags libffi`"
 CPPFLAGS="%{rpmcflags} %{!?debug:-fomit-frame-pointer} -I/usr/include/ncurses `pkg-config --cflags libffi`"
 %configure \
-	--enable-threads=pthreads
+	--enable-threads=pthreads \
+	%{?with_libjit:--with-jit}
 
 %{__make} -j1
 
@@ -325,10 +340,10 @@ rm -rf $RPM_BUILD_ROOT
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post tools	-p	/sbin/postshell
+%post	tools -p /sbin/postshell
 -/usr/sbin/fix-info-dir -c %{_infodir}
 
-%postun tools	-p	/sbin/postshell
+%postun	tools -p /sbin/postshell
 -/usr/sbin/fix-info-dir -c %{_infodir}
 
 %files
@@ -421,4 +436,10 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %{_includedir}/pnet
-%{_libdir}/*.a
+%{_libdir}/libILAsm.a
+%{_libdir}/libILCodeGen.a
+%{_libdir}/libILDumpAsm.a
+%{_libdir}/libILEngine.a
+%{_libdir}/libILImage.a
+%{_libdir}/libILLink.a
+%{_libdir}/libILSupport.a

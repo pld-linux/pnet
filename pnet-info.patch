@@ -1,0 +1,440 @@
+--- pnet-0.8.0/doc/pnettools.texi.orig	2005-01-16 04:48:28.000000000 +0100
++++ pnet-0.8.0/doc/pnettools.texi	2014-12-13 15:07:14.668041638 +0100
+@@ -5,44 +5,23 @@
+ @setchapternewpage off
+ @c %** end of header
+ 
+-@dircategory DotGNU
++@dircategory DotGNU:
+ @direntry
+-* Portable .NET: (pnettools).   Development toolchain for applications
+-                                targeted at the CLI, such as those
+-                                written in C#.
+-@end direntry
+-
+-@dircategory Individual utilities
+-@direntry
+-* csant: (pnettools)csant invocation.
+-                                Manage build scripts for C# programs.
+-* cscc: (pnettools)cscc invocation.
+-                                Compiling to DotGNU Portable .NET.
+-* csdoc: (pnettools)csdoc invocation.
+-                                Extracting C# program documentation.
+-* csdoc2hier: (pnettools)csdoc2hier invocation.
+-                                Viewing C# class hierarchies.
+-* csdoc2html: (pnettools)csdoc2html invocation.
+-                                Converting `csdoc' output to HTML.
+-* csdoc2texi: (pnettools)csdoc2texi invocation.
+-                                Converting `csdoc' output to Texinfo.
+-* ilalink: (pnettools)ilalink invocation.  Link Portable .NET objects.
+-* ilasm: (pnettools)ilasm invocation.    Assemble IL to Portable .NET
+-                                assemblies.
+-* ildasm: (pnettools)ildasm invocation.
+-                                Debug problems with Portable .NET
+-                                executables by disassembly.
+-* ildd: (pnettools)ildd invocation.
+-                                Portable .NET library dependencies.
+-* ilfind: (pnettools)ilfind invocation.     Search for patterns in
+-                                Portable .NET objects.
+-* ilnative: (pnettools)ilnative invocation.
+-                                List native methods used in a Portable
+-                                .NET assemblies/objects.
+-* ilsize: (pnettools)ilsize invocation.
+-                                List size information for CLI objects.
+-* resgen: (pnettools)resgen invocation.     Make data resources for
+-                                            Portable .NET assemblies.
++* Portable .NET: (pnettools).		Development toolchain for applications targeted at the CLI, such as those written in C#
++* csant: (pnettools)csant.		Manage build scripts for C# programs
++* cscc: (pnettools)cscc.		Compiling to DotGNU Portable .NET
++* csdoc: (pnettools)csdoc.		Extracting C# program documentation
++* csdoc2hier: (pnettools)csdoc2hier.	Viewing C# class hierarchies
++* csdoc2html: (pnettools)csdoc2html.	Converting `csdoc' output to HTML
++* csdoc2texi: (pnettools)csdoc2texi.	Converting `csdoc' output to Texinfo
++* ilalink: (pnettools)ilalink.		Link Portable .NET objects
++* ilasm: (pnettools)ilasm.		Assemble IL to Portable .NET assemblies
++* ildasm: (pnettools)ildasm.		Debug problems with Portable .NET executables by disassembly
++* ildd: (pnettools)ildd.		Portable .NET library dependencies
++* ilfind: (pnettools)ilfind.		Search for patterns in Portable .NET objects
++* ilnative: (pnettools)ilnative.	List native methods used in a Portable .NET assemblies/objects
++* ilsize: (pnettools)ilsize.		List size information for CLI objects
++* resgen: (pnettools)resgen.		Make data resources for Portable .NET assemblies
+ @end direntry
+ 
+ @ifinfo
+@@ -103,13 +82,13 @@ The C# documentation conversion utility.
+ more information.
+ @item csdoc2hier
+ Used to convert C# XML documentation into a tree hierarchy diagram.
+-@xref{csdoc2hier invocation}, for more information.
++@xref{csdoc2hier}, for more information.
+ @item csdoc2html
+-Used to convert C# XML documentation into HTML.  @xref{csdoc2html invocation},
++Used to convert C# XML documentation into HTML.  @xref{csdoc2html},
+ for more information.
+ @item csdoc2texi
+ Used to convert C# XML documentation into texinfo.
+-@xref{csdoc2texi invocation}, for more information.
++@xref{csdoc2texi}, for more information.
+ @item ilasm
+ The Intermediate Language (IL) assembler.  @xref{Assembler},
+ for more information.
+@@ -131,7 +110,7 @@ The resource generation utility.  @xref{
+ 
+ @c -----------------------------------------------------------------------
+ 
+-@node C# Compiler, cscc invocation, Overview, Top
++@node C# Compiler, cscc, Overview, Top
+ @chapter C# Compiler
+ @cindex C# Compiler
+ @cindex cscc
+@@ -144,7 +123,7 @@ to match that of C compilers such as gcc
+ curve for new users.
+ 
+ @menu
+-* cscc invocation::         Invoking cscc
++* cscc::                    Invoking cscc
+ * Option Summary::          Brief list of all options, without explainations
+ * Overall Options::         Controlling input, output, and overall behaviour
+ * Language Options::        Controlling the variant of C# that is compiled
+@@ -163,7 +142,7 @@ curve for new users.
+ 
+ @c -----------------------------------------------------------------------
+ 
+-@node cscc invocation, Option Summary, C# Compiler, C# Compiler
++@node cscc, Option Summary, C# Compiler, C# Compiler
+ @section Invoking cscc
+ @cindex cscc invocation
+ 
+@@ -178,7 +157,7 @@ Otherwise the exit status is 0.
+ 
+ @c -----------------------------------------------------------------------
+ 
+-@node Option Summary, Overall Options, cscc invocation, C# Compiler
++@node Option Summary, Overall Options, cscc, C# Compiler
+ @section Option summary for cscc
+ @cindex cscc option summary
+ 
+@@ -2130,10 +2109,10 @@ a tree hierarchy diagram of all types in
+ * Documentation Sections::  XML tags used for documentation sections
+ * Documentation Markup::    XML tags used for marking up text
+ * Cross-References::        Specifying cross-references in XML tags
+-* csdoc invocation::        Invoking csdoc
+-* csdoc2html invocation::   Invoking csdoc2html
+-* csdoc2texi invocation::   Invoking csdoc2texi
+-* csdoc2hier invocation::   Invoking csdoc2hier
++* csdoc::                   Invoking csdoc
++* csdoc2html::              Invoking csdoc2html
++* csdoc2texi::              Invoking csdoc2texi
++* csdoc2hier::              Invoking csdoc2hier
+ @end menu
+ 
+ @c -----------------------------------------------------------------------
+@@ -2311,7 +2290,7 @@ An alternative way of specifying @code{<
+ 
+ @c -----------------------------------------------------------------------
+ 
+-@node Cross-References, csdoc invocation, Documentation Markup, Documentation
++@node Cross-References, csdoc, Documentation Markup, Documentation
+ @section Documentation cross-references
+ @cindex Documentation cross-references
+ 
+@@ -2340,7 +2319,7 @@ the cross-reference could not be resolve
+ 
+ @c -----------------------------------------------------------------------
+ 
+-@node csdoc invocation, csdoc2html invocation, Cross-References, Documentation
++@node csdoc, csdoc2html, Cross-References, Documentation
+ @section Invoking csdoc
+ @cindex csdoc invocation
+ 
+@@ -2392,7 +2371,7 @@ is being compiled by cscc, or converted
+ 
+ @c -----------------------------------------------------------------------
+ 
+-@node csdoc2html invocation, csdoc2texi invocation, csdoc invocation, Documentation
++@node csdoc2html, csdoc2texi, csdoc, Documentation
+ @section Invoking csdoc2html
+ @cindex csdoc2html invocation
+ 
+@@ -2520,7 +2499,7 @@ source file.
+ 
+ @c -----------------------------------------------------------------------
+ 
+-@node csdoc2texi invocation, csdoc2hier invocation, csdoc2html invocation, Documentation
++@node csdoc2texi, csdoc2hier, csdoc2html, Documentation
+ @section Invoking csdoc2texi
+ @cindex csdoc2texi invocation
+ 
+@@ -2669,7 +2648,7 @@ can be viewed or printed with the usual
+ 
+ @c -----------------------------------------------------------------------
+ 
+-@node csdoc2hier invocation, Build Management, csdoc2texi invocation, Documentation
++@node csdoc2hier, Build Management, csdoc2texi, Documentation
+ @section Invoking csdoc2hier
+ @cindex csdoc2hier invocation
+ 
+@@ -2722,7 +2701,7 @@ Otherwise the exit status is 0.
+ 
+ @c -----------------------------------------------------------------------
+ 
+-@node Build Management, csant invocation, csdoc2hier invocation, Top
++@node Build Management, csant, csdoc2hier, Top
+ @chapter Build management with csant
+ @cindex Build management
+ @cindex csant
+@@ -2732,7 +2711,7 @@ Csant supports multiple compilers and ge
+ specifications for each compiler.
+ 
+ @menu
+-* csant invocation::          Invoking csant
++* csant::                     Invoking csant
+ * Build file syntax::         Syntax of XML build files
+ * Compile tag::               Syntax of the <compile> tag
+ * Builtin build properties::  Builtin build properties
+@@ -2741,7 +2720,7 @@ specifications for each compiler.
+ 
+ @c -----------------------------------------------------------------------
+ 
+-@node csant invocation, Build file syntax, Build Management, Build Management
++@node csant, Build file syntax, Build Management, Build Management
+ @chapter Invoking csant
+ @cindex csant invocation
+ 
+@@ -2850,7 +2829,7 @@ Print the program's help message.
+ 
+ @c -----------------------------------------------------------------------
+ 
+-@node Build file syntax, Compile tag, csant invocation, Build Management
++@node Build file syntax, Compile tag, csant, Build Management
+ @chapter Syntax of XML build files
+ @cindex csant build file syntax
+ 
+@@ -3239,7 +3218,7 @@ any application can use user-defined pro
+ 
+ @c -----------------------------------------------------------------------
+ 
+-@node Assembler, ilasm invocation, Creating profiles, Top
++@node Assembler, ilasm, Creating profiles, Top
+ @chapter Intermediate language assembler
+ @cindex Assembler
+ @cindex ilasm
+@@ -3254,7 +3233,7 @@ are building your own compiler for the P
+ then you may need to invoke this program.
+ 
+ @menu
+-* ilasm invocation::        Invoking ilasm
++* ilasm::                   Invoking ilasm
+ * Assembler Syntax::        Introduction to the assembler syntax
+ * Lexical Tokens::          Lexical tokens syntax
+ * Helper Non-Terminals::    Non-terminals that help with syntax definition
+@@ -3275,7 +3254,7 @@ then you may need to invoke this program
+ 
+ @c -----------------------------------------------------------------------
+ 
+-@node ilasm invocation, Assembler Syntax, Assembler, Assembler
++@node ilasm, Assembler Syntax, Assembler, Assembler
+ @section Invoking ilasm
+ @cindex ilasm invocation
+ 
+@@ -3448,7 +3427,7 @@ IEEE-compliant values.
+ 
+ @c -----------------------------------------------------------------------
+ 
+-@node Disassembler, ildasm invocation, Other Declarations, Top
++@node Disassembler, ildasm, Other Declarations, Top
+ @chapter Intermediate language disassembler
+ @cindex Disassembler
+ @cindex ildasm
+@@ -3461,12 +3440,12 @@ Ildasm is useful for diagnosing problems
+ development tools.  It is rarely useful to regular users or programmers.
+ 
+ @menu
+-* ildasm invocation::       Invoking ildasm
++* ildasm::                  Invoking ildasm
+ @end menu
+ 
+ @c -----------------------------------------------------------------------
+ 
+-@node ildasm invocation, Linker, Disassembler, Disassembler
++@node ildasm, Linker, Disassembler, Disassembler
+ @section Invoking ildasm
+ @cindex ildasm invocation
+ 
+@@ -3561,7 +3540,7 @@ complete list of errors that may occur w
+ 
+ @c -----------------------------------------------------------------------
+ 
+-@node Linker, ilalink invocation, ildasm invocation, Top
++@node Linker, ilalink, ildasm, Top
+ @chapter Intermediate language assembly linker
+ @cindex Linker
+ @cindex ilalink
+@@ -3571,12 +3550,12 @@ resolves external references to IL libra
+ IL executable (@code{.exe}) or IL dynamic link library (@code{.dll}).
+ 
+ @menu
+-* ilalink invocation::      Invoking ilalink
++* ilalink::                 Invoking ilalink
+ @end menu
+ 
+ @c -----------------------------------------------------------------------
+ 
+-@node ilalink invocation, Size, Linker, Linker
++@node ilalink, Size, Linker, Linker
+ @section Invoking ilalink
+ @cindex ilalink invocation
+ 
+@@ -3784,7 +3763,7 @@ Otherwise the exit status is 0.
+ 
+ @c -----------------------------------------------------------------------
+ 
+-@node Size, ilsize invocation, ilalink invocation, Top
++@node Size, ilsize, ilalink, Top
+ @chapter Intermediate language size utility
+ @cindex Size
+ @cindex ilsize
+@@ -3794,12 +3773,12 @@ file (@code{.obj}), an IL executable (@c
+ library (@code{.dll}).  The output is similar to that produced by size(1).
+ 
+ @menu
+-* ilsize invocation::       Invoking ilsize
++* ilsize::                  Invoking ilsize
+ @end menu
+ 
+ @c -----------------------------------------------------------------------
+ 
+-@node ilsize invocation, Native, Size, Size
++@node ilsize, Native, Size, Size
+ @section Invoking ilsize
+ @cindex ilsize invocation
+ 
+@@ -3863,7 +3842,7 @@ archive contents like size(1) can.
+ 
+ @c -----------------------------------------------------------------------
+ 
+-@node Native, ilnative invocation, ilsize invocation, Top
++@node Native, ilnative, ilsize, Top
+ @chapter Intermediate language native utility
+ @cindex Native
+ @cindex ilnative
+@@ -3875,12 +3854,12 @@ that use native methods, or developers w
+ native methods a third party program requires.
+ 
+ @menu
+-* ilnative invocation::     Invoking ilnative
++* ilnative::                Invoking ilnative
+ @end menu
+ 
+ @c -----------------------------------------------------------------------
+ 
+-@node ilnative invocation, Find, Native, Native
++@node ilnative, Find, Native, Native
+ @section Invoking ilnative
+ @cindex ilnative invocation
+ 
+@@ -3921,7 +3900,7 @@ complete list of errors that may occur w
+ 
+ @c -----------------------------------------------------------------------
+ 
+-@node Find, ilfind invocation, ilnative invocation, Top
++@node Find, ilfind, ilnative, Top
+ @chapter Intermediate language name find utility
+ @cindex Find
+ @cindex ilfind
+@@ -3935,12 +3914,12 @@ whose name matches the pattern, a line i
+ describing the match.
+ 
+ @menu
+-* ilfind invocation::       Invoking ilfind
++* ilfind::                  Invoking ilfind
+ @end menu
+ 
+ @c -----------------------------------------------------------------------
+ 
+-@node ilfind invocation, Dependencies, Find, Find
++@node ilfind, Dependencies, Find, Find
+ @section Invoking ilfind
+ @cindex ilfind invocation
+ 
+@@ -4030,7 +4009,7 @@ complete list of errors that may occur w
+ 
+ @c -----------------------------------------------------------------------
+ 
+-@node Dependencies, ildd invocation, ilfind invocation, Top
++@node Dependencies, ildd, ilfind, Top
+ @chapter Intermediate language dependency utility
+ @cindex Dependencies
+ @cindex ildd
+@@ -4040,12 +4019,12 @@ an IL object file (@code{.obj}), an IL e
+ or an IL dynamic link library (@code{.dll}).
+ 
+ @menu
+-* ildd invocation::         Invoking ildd
++* ildd::                    Invoking ildd
+ @end menu
+ 
+ @c -----------------------------------------------------------------------
+ 
+-@node ildd invocation, Resources, Dependencies, Dependencies
++@node ildd, Resources, Dependencies, Dependencies
+ @section Invoking ildd
+ @cindex ildd invocation
+ 
+@@ -4098,7 +4077,7 @@ complete list of errors that may occur w
+ 
+ @c -----------------------------------------------------------------------
+ 
+-@node Resources, resgen invocation, ildd invocation, Top
++@node Resources, resgen, ildd, Top
+ @chapter Resource generation and conversion
+ @cindex Resources
+ @cindex resgen
+@@ -4110,14 +4089,14 @@ resources (.po) into binary resources (@
+ attached to an IL executable or dynamic link library.
+ 
+ @menu
+-* resgen invocation::       Invoking resgen
++* resgen::                  Invoking resgen
+ * Resource Format::         Text resource file format
+ * Resource Examples::       Resource conversion examples
+ @end menu
+ 
+ @c -----------------------------------------------------------------------
+ 
+-@node resgen invocation, Resource Format, Resources, Resources
++@node resgen, Resource Format, Resources, Resources
+ @section Invoking resgen
+ @cindex resgen invocation
+ 
+@@ -4256,7 +4235,7 @@ Otherwise the exit status is 0.
+ 
+ @c -----------------------------------------------------------------------
+ 
+-@node Resource Format, Resource Examples, resgen invocation, Resources
++@node Resource Format, Resource Examples, resgen, Resources
+ @section Text resource file format
+ @cindex Resource Format
+ 
+--- pnet-0.8.0/doc/pnetasm.texi.orig	2005-08-01 20:56:12.000000000 +0200
++++ pnet-0.8.0/doc/pnetasm.texi	2014-12-13 14:56:14.808069329 +0100
+@@ -1,7 +1,7 @@
+ 
+ @c -----------------------------------------------------------------------
+ 
+-@node Assembler Syntax, Lexical Tokens, ilasm invocation, Assembler
++@node Assembler Syntax, Lexical Tokens, ilasm, Assembler
+ @section Assembler Syntax
+ @cindex Assembler Syntax
+ 
+--- pnet-0.8.0/doc/pnettools.texi.orig	2014-12-13 21:22:10.830430895 +0100
++++ pnet-0.8.0/doc/pnettools.texi	2014-12-13 21:40:13.800385447 +0100
+@@ -38,7 +38,7 @@
+ @center @titlefont{Portable.NET Development Tools}
+ 
+ @vskip 0pt plus 1fill
+-@center{Copyright @copyright{} 2001, 2002, 2003 Southern Storm Software, Pty Ltd}
++@center Copyright @copyright{} 2001, 2002, 2003 Southern Storm Software, Pty Ltd
+ @end titlepage
+ 
+ @c -----------------------------------------------------------------------
