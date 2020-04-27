@@ -1,0 +1,20 @@
+cvm.c compilation fails with no register to spill on recent gcc with -march=i[456]86
+--- pnet-0.8.0/engine/Makefile.am.orig	2007-03-07 19:50:41.000000000 +0100
++++ pnet-0.8.0/engine/Makefile.am	2020-04-26 21:14:07.088867516 +0200
+@@ -186,7 +186,7 @@
+ 			$(NO_UNIT_AT_A_TIME) -I$(top_srcdir)/support \
+ 			-I$(top_srcdir)/libgc/include -I$(top_srcdir)/include \
+ 			$(JIT_INCLUDE) \
+-			-I../libffi/include -I. -DBUILD_PROFILE_NAME="\"$(PROFILE_NAME)\""
++			-I../libffi/include -I. -DBUILD_PROFILE_NAME="\"$(PROFILE_NAME)\"" -Os
+ 
+ else
+ 
+@@ -215,6 +215,7 @@
+ cvmc.$(OBJEXT): cvmc.c $(CVMC_INCLUDES)
+ 
+ cvm.$(OBJEXT): cvm.c $(CVM_INCLUDES) cvm_labels.h
++cvm.$(OBJEXT): CFLAGS += -march=i386 -mtune=i386
+ 
+ internal.$(OBJEXT): internal.c $(INTERNAL_INCLUDES)
+ 
