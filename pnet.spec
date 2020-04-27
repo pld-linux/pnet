@@ -19,6 +19,7 @@ Patch3:		no-regex_syntax.patch
 Patch4:		%{name}-info.patch
 Patch5:		%{name}-link.patch
 Patch6:		%{name}-opt.patch
+Patch7:		x32.patch
 URL:		http://www.gnu.org/software/dotgnu/pnet.html
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -304,6 +305,7 @@ Header de desenvolviemnto da Portable .NET.
 %ifarch %{ix86}
 %patch6 -p1
 %endif
+%patch7 -p1
 
 %{__rm} ilasm/ilasm_grammar.c
 

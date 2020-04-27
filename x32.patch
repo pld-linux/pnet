@@ -1,0 +1,20 @@
+--- pnet-0.8.0/support/interlocked_x86.h.orig	2020-04-27 09:47:43.129859127 +0200
++++ pnet-0.8.0/support/interlocked_x86.h	2020-04-27 09:48:05.713191727 +0200
+@@ -114,7 +114,7 @@
+ 	__asm__ __volatile__
+ 	(
+ 		"lock;"
+-#if defined(__x86_64__)
++#if defined(__x86_64__) && !defined(__ILP32__)
+ 		"cmpxchgq %2, %0;"
+ #else
+ 		"cmpxchgl %2, %0;"
+@@ -137,7 +137,7 @@
+ 	(
+ 		"1:;"
+ 		"lock;"
+-#if defined(__x86_64__)
++#if defined(__x86_64__) && !defined(__ILP32__)
+ 		"cmpxchgq %2, %0;"
+ #else
+ 		"cmpxchgl %2, %0;"
