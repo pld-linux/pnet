@@ -7,7 +7,7 @@ Summary(pl.UTF-8):	Narzędzia Portable .NET z projektu DotGNU
 Summary(pt_BR.UTF-8):	Ferramentas Portable .NET DotGNU
 Name:		pnet
 Version:	0.8.0
-Release:	3
+Release:	4
 License:	GPL v2+
 Group:		Development/Languages
 Source0:	http://download.savannah.gnu.org/releases/dotgnu-pnet/%{name}-%{version}.tar.gz
