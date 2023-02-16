@@ -1,0 +1,21 @@
+--- pnet-0.8.0/cscc/common/cc_main.h.orig	2004-07-08 01:47:37.000000000 +0200
++++ pnet-0.8.0/cscc/common/cc_main.h	2023-02-16 22:13:49.331652190 +0100
+@@ -137,7 +137,7 @@ extern ILScope *CCGlobalScope;
+ /*
+  * Pre-processor stream.
+  */
+-CCPreProc CCPreProcessorStream;
++extern CCPreProc CCPreProcessorStream;
+ 
+ /*
+  * Main entry point.  Call this from the plugin's "main".
+--- pnet-0.8.0/csdoc/scanner.c.orig	2003-06-24 06:20:25.000000000 +0200
++++ pnet-0.8.0/csdoc/scanner.c	2023-02-16 22:17:51.579756587 +0100
+@@ -82,7 +82,6 @@ char	tokenString[MAX_LENGTH];		// next t
+ char	expandText[8];						// for expanding special characters
+ int	expandPosition = 0;
+ bool	expand = FALSE;
+-int	token;								// current token for scanner/parser
+ int	error = NoError;					// scanner error code
+ bool	inCcomment = FALSE;				// true if parsing C style comment
+ bool	inCPPcomment = FALSE;			// true if parsing C++ style comment

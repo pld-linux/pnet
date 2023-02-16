@@ -7,7 +7,7 @@ Summary(pl.UTF-8):	Narzędzia Portable .NET z projektu DotGNU
 Summary(pt_BR.UTF-8):	Ferramentas Portable .NET DotGNU
 Name:		pnet
 Version:	0.8.0
-Release:	4
+Release:	5
 License:	GPL v2+
 Group:		Development/Languages
 Source0:	http://download.savannah.gnu.org/releases/dotgnu-pnet/%{name}-%{version}.tar.gz
@@ -20,6 +20,7 @@ Patch4:		%{name}-info.patch
 Patch5:		%{name}-link.patch
 Patch6:		%{name}-opt.patch
 Patch7:		x32.patch
+Patch8:		%{name}-no-common.patch
 URL:		http://www.gnu.org/software/dotgnu/pnet.html
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -136,7 +137,7 @@ Summary(pl.UTF-8):	Pliki wspólne dla kompilatorów Portable .NET
 Group:		Development/Languages
 Requires:	%{name}-interpreter = %{version}
 Requires:	ilasm
-Obsoletes:	pnet-libgc
+Obsoletes:	pnet-libgc < 0.6.2-3
 
 %description compiler-common
 The cscc compiler collection allows multiple input languages and
@@ -306,6 +307,7 @@ Header de desenvolviemnto da Portable .NET.
 %patch6 -p1
 %endif
 %patch7 -p1
+%patch8 -p1
 
 %{__rm} ilasm/ilasm_grammar.c
 
