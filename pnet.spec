@@ -298,7 +298,7 @@ Header de desenvolviemnto da Portable .NET.
 %setup -q
 %patch -P0 -p1
 # pnet uses gc incompatible with system lib and links statically to it
-#%patch1 -p1
+#%%patch1 -p1
 %patch -P2 -p1
 %patch -P3 -p1
 %patch -P4 -p1
