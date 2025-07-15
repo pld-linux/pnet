@@ -296,18 +296,18 @@ Header de desenvolviemnto da Portable .NET.
 
 %prep
 %setup -q
-%patch0 -p1
+%patch -P0 -p1
 # pnet uses gc incompatible with system lib and links statically to it
 #%patch1 -p1
-%patch2 -p1
-%patch3 -p1
-%patch4 -p1
-%patch5 -p1
+%patch -P2 -p1
+%patch -P3 -p1
+%patch -P4 -p1
+%patch -P5 -p1
 %ifarch %{ix86}
-%patch6 -p1
+%patch -P6 -p1
 %endif
-%patch7 -p1
-%patch8 -p1
+%patch -P7 -p1
+%patch -P8 -p1
 
 %{__rm} ilasm/ilasm_grammar.c
 
